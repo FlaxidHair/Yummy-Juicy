@@ -1,5 +1,7 @@
 <template>
-
+  <Header></Header>
+  <router-view></router-view>
+  <Footer></Footer>
 </template>
 
 <style>
@@ -7,9 +9,10 @@
 </style>
 
 <script>
-import Component1 from './components/Header.vue';
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 export default {
-  components:{Component1},
+  components:{Header,Footer},
   data() {
     return {
       
@@ -18,8 +21,5 @@ export default {
   methods: {
    
   },
-  props:{
-   
-  }
 }
 </script>

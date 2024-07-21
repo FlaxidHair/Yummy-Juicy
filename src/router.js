@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Component2 from "./components/Component2.vue";
-import Component3 from "./components/Component3.vue";
+import Recipe from "./pages/Recipe.vue";
+import MainPage from "./pages/MainPage.vue";
 
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
-    { path: "/22", component: Component2 },
-    { path: "/33", component: Component3 },
+    { path: "/", component: MainPage },
+    { path: "/recipe", component: Recipe },
   ],
 });
