@@ -5,12 +5,10 @@ const store = createStore({
     return {
       show: false,
       recipe: {
-        name: [],
-        ing: [],
         nameIng: "",
         nameRecipe: "",
         recipies: [],
-        recipies2: [],
+        saveRecipe: "",
       },
     };
   },
@@ -22,19 +20,12 @@ const store = createStore({
     closeModal(state) {
       state.show = false;
     },
-    addNameRecipe(state) {
-      state.recipe.name.push(state.recipe.nameRecipe);
-      state.recipe.ing.push(state.recipe.nameIng);
-    },
     templateRecipe(state) {
-      this.commit("addNameRecipe");
-      state.recipe.recipies.push(state.recipe.name.at(-1));
-      state.recipe.recipies.push(state.recipe.ing.at(-1));
-      const obj = {
-        name: state.recipe.name.at(-1),
-        ing: state.recipe.ing.at(-1),
+      const fullRecipe = {
+        name: state.recipe.nameRecipe,
+        ing: state.recipe.nameIng,
       };
-      state.recipe.recipies2.push(obj);
+      state.recipe.recipies.push(fullRecipe);
     },
   },
 });
