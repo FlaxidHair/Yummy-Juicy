@@ -13,7 +13,7 @@
          <li class="header__list-item"><router-link to="/templaterecipe">Создать рецепт</router-link></li>
          <li class="header__list-item"><router-link to="/notes">Заметки</router-link></li>
       </ul>
-      <button class="header__auth-modal" @click="$store.commit('showModal')">
+      <button class="header__auth-modal button" @click="$store.commit('showModal')">
          Войти
       </button>
       <Modal></Modal>
