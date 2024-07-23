@@ -5,7 +5,13 @@
 </template>
 
 <style>
-
+.slider {
+  display:flex;
+}
+.clon {
+  border:1px solid;
+  background-color: red;
+}
 </style>
 
 <script>
@@ -19,7 +25,9 @@ export default {
     }
   },
   methods: {
-   
+    next() {
+    this.$store.state.images
+    }
   },
 }
 </script>
