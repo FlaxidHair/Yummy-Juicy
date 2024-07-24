@@ -28,6 +28,7 @@ const store = createStore({
       state.recipe.recipies.push(fullRecipe);
     },
   },
+  actions: {},
 });
 
 export default store;

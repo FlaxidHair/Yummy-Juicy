@@ -6,9 +6,9 @@
         <input type="text" v-model="$store.state.recipe.nameRecipe">
         <input type="text" v-model="$store.state.recipe.nameIng">
         <button @click="$store.commit('templateRecipe')">Добавить рецепт</button>
-        <div v-for="recipe in $store.state.recipe.saveRecipe" :key="recipe">
-            {{ recipe}}
-            {{ recipe }}
+        <div v-for="recipe in $store.state.recipe.recipies" :key="recipe">
+            {{ recipe.name}}
+            {{ recipe.ing }}
             {{ }}
         </div>
         
