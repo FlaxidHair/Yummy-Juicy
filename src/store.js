@@ -8,7 +8,6 @@ const store = createStore({
         nameIng: "",
         nameRecipe: "",
         recipies: [],
-        saveRecipe: "",
       },
     };
   },
@@ -26,6 +25,8 @@ const store = createStore({
         ing: state.recipe.nameIng,
       };
       state.recipe.recipies.push(fullRecipe);
+      localStorage.setItem("recipies", JSON.stringify(state.recipe.recipies));
+      state.recipe.recipies = JSON.parse(localStorage.getItem("recipies"));
     },
   },
   actions: {},

@@ -3,19 +3,49 @@
         <h2 class="recipe-title title">
             Рецепты
         </h2>
-        <input type="text" v-model="$store.state.recipe.nameRecipe">
-        <input type="text" v-model="$store.state.recipe.nameIng">
-        <button @click="$store.commit('templateRecipe')">Добавить рецепт</button>
-        <div v-for="recipe in $store.state.recipe.recipies" :key="recipe">
-            {{ recipe.name}}
+        <input type="text" v-model="nameRecipe">
+        <input type="text" v-model="nameIng">
+        <button @click="addRecipe()">Добавить рецепт</button>
+        <div v-for="(recipe,index) in recipies" :key="recipe">
+            {{ recipe.name}} <span @click="deleteRecipe(index)">Delete</span>
             {{ recipe.ing }}
-            {{ }}
         </div>
         
     </div>
 </template>
 
 <script>
+
+export default {
+    data() {
+    return {
+        
+        nameIng:'',
+        nameRecipe:'',  
+        recipies:[],
+    }
+},
+   mounted() {
+
+        const data = JSON.parse(localStorage.getItem("recipies"))
+        this.recipies = data
+
+
+   },
+   methods: {
+    addRecipe() {
+            this.recipies.push({
+            name:this.nameRecipe,
+            ing:this.nameIng ,
+        })       
+        localStorage.setItem('recipies',JSON.stringify(this.recipies))
+    },
+    deleteRecipe(index) {
+        this.recipies.splice(index,1)
+        localStorage.setItem('recipies',JSON.stringify(this.recipies))
+    }
+   }
+}
 </script>
 <style>
 </style>
