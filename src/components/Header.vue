@@ -6,7 +6,7 @@
             <h1 class="header__logotype-text">RecipeBook</h1>
       </div>
    </router-link>
-      <ul clas="list-item">
+      <ul class="header__list">
          <li class="header__list-item"><router-link to="/">Главная</router-link></li>
          <li class="header__list-item"><router-link to="/recipe">Рецепты</router-link></li>
          <li class="header__list-item"><router-link to="/dishes">Блюда</router-link></li>
@@ -29,5 +29,24 @@ export default {
 </script>
 
 <style>
-
+.header {
+   display:flex;
+   height:150px;
+   align-items: center;
+   justify-content: space-between;
+   padding-inline: 30px;
+   padding-inline-end: 100px;
+}
+.header__logotype {
+   display:flex;
+   align-items: center;
+   column-gap:10px;
+}
+.header__list {
+   display:flex;
+   column-gap:25px;
+}
+.header__auth-modal {
+   width:150px;
+}
 </style>
