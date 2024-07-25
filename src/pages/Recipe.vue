@@ -7,8 +7,9 @@
         <input type="text" v-model="nameIng">
         <button @click="addRecipe()">Добавить рецепт</button>
         <div v-for="(recipe,index) in recipies" :key="recipe">
-            {{ recipe.name}} <span @click="deleteRecipe(index)">Delete</span>
-            {{ recipe.ing }}
+            <h1 class="template-recipe__title">{{ recipe.name}}</h1>                    
+            <p class="template-recipe__ingridients">{{ recipe.ing }}</p>
+            <span @click="deleteRecipe(index)">Delete</span>
         </div>
         
     </div>
@@ -18,19 +19,15 @@
 
 export default {
     data() {
-    return {
-        
+    return {    
         nameIng:'',
         nameRecipe:'',  
         recipies:[],
     }
 },
    mounted() {
-
         const data = JSON.parse(localStorage.getItem("recipies"))
         this.recipies = data
-
-
    },
    methods: {
     addRecipe() {
