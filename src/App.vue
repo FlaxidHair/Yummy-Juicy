@@ -1,17 +1,12 @@
 <template>
+  <v-app>
   <Header></Header>
   <RouterView/>
   <Footer></Footer>
+</v-app>
 </template>
 
 <style>
-.slider {
-  display:flex;
-}
-.clon {
-  border:1px solid;
-  background-color: red;
-}
 </style>
 
 <script setup>
