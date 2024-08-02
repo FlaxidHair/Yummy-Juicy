@@ -1,13 +1,12 @@
 <template>
     <div>
-1
+ <h1>Шаблон рецепта</h1>
     </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+import {useStoreRecipies} from '../stores/storeRecipies'
+const store = useStoreRecipies();
 </script>
 
 <style >

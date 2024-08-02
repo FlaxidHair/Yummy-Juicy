@@ -1,6 +1,6 @@
 <template>
   <Header></Header>
-  <router-view></router-view>
+  <RouterView/>
   <Footer></Footer>
 </template>
 
@@ -14,20 +14,14 @@
 }
 </style>
 
-<script>
+<script setup>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-export default {
-  components:{Header,Footer},
-  data() {
-    return {
-      
-    }
-  },
-  methods: {
-    next() {
-    this.$store.state.images
-    }
-  },
-}
+import {useStoreRecipies} from './stores/storeRecipies'
+import {onMounted,ref} from 'vue'
+const store = useStoreRecipies();
+
+ onMounted(()=>{
+  store.getRecipies()
+})
 </script>

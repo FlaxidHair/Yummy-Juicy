@@ -1,15 +1,14 @@
 <template>
-    <div>
-<h1>Dishes</h1>
-{{ store.amogus }}
+    <div class="main">
+        <h1>
+            Рецепты
+        </h1>   
     </div>
 </template>
 
-<script setup>
+<script>
 import {useStoreRecipies} from '../stores/storeRecipies'
 const store = useStoreRecipies();
 </script>
-
 <style>
-
 </style>
