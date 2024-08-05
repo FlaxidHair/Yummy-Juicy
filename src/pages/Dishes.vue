@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main">
 <h1>Dishes</h1>
 {{ store.amogus }}
     </div>

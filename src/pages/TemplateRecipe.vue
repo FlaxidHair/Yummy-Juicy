@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main">
  <h1>Шаблон рецепта</h1>
     </div>
 </template>
