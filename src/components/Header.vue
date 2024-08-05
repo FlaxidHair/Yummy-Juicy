@@ -1,5 +1,5 @@
 <template>
- <div class="d-flex justify-center">
+ <div class="d-flex mt-5 justify-center">
   <v-app-bar :elevation="3" rounded class="position-relative w-75 d-flex justify-center">
   <div class="ml-8">
     <v-app-bar-title class="d-flex ga-3 text-no-wrap">

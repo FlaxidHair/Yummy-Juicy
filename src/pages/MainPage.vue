@@ -1,7 +1,7 @@
 <template>
     <main class="main">
-        <LastRecipe></LastRecipe>
         <RandomDish></RandomDish>
+        <LastRecipe></LastRecipe>
         <LastNotes></LastNotes>
     </main>
 </template>
