@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import axios from "axios";
 export const useStoreRecipies = defineStore("storeRecipies", {
   state: () => ({
-    amogus: "Aleee",
+    raz: [1, 2, 3, 4, 5],
     data: [
       {
         name: "name",
