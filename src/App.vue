@@ -13,7 +13,7 @@
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 import {useStoreRecipies} from './stores/storeRecipies'
-import {onMounted,ref} from 'vue'
+import {onMounted} from 'vue'
 const store = useStoreRecipies();
 
  onMounted(()=>{
