@@ -22,7 +22,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     async asyncis() {
       axios.post(
         "https://v1.slashapi.com/asd-3/google-sheets/trHA1e60zZ/list1",
-        { data: this.data }
+        { data }
       );
     },
   },

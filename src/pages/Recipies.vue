@@ -1,8 +1,11 @@
 <template>
-    <div class="main">
-        <h1>
+    <div class="main d-flex justify-center mt-15 mb-15">
+        <h2>
             Рецепты
-        </h1>   
+        </h2> 
+        <div>
+            
+        </div>  
     </div>
 </template>
 
