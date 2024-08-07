@@ -14,7 +14,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
   actions: {
     async getRecipies() {
       const res = await fetch(
-        "	https://v1.slashapi.com/asd-3/google-sheets/trHA1e60zZ/list1"
+        "https://script.google.com/macros/s/AKfycbwYNA8D-po1XiLlgRFE3G1TZPi5nl09hmVQARnr0TdENmAwiZhDHWT4KZzu1Pl1hVCqgA/exec"
       );
       const data = await res.json();
       this.recipiess = data;

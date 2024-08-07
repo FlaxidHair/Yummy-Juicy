@@ -12,10 +12,18 @@ ul,li,a{
 body {
     min-height: 100vh;
     margin: 0;
-  
     display: flex;
     flex-direction: column;
   }
+  h2,h3,h4,h5,h6 {
+    color:#607D8B;
+  }
   .main {
     flex-grow: 1;
+  }
+  .app {
+    background-color:#3f95d30a;
+  }
+  button {
+    background-color:#FFA726;
   }

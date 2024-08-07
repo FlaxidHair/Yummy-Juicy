@@ -1,6 +1,6 @@
 <template>
     <div class="mt-10">
-        <v-footer class="bg-grey-lighten-1" height="200px">
+        <v-footer class="bg-red-accent-1" height="200px">
     <v-row justify="center" no-gutters>
         <ul class="d-flex ga-5">
         <RouterLink to="/"><li><v-btn>Главная</v-btn></li></RouterLink>

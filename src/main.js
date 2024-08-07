@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import { createPinia } from "pinia";
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
+import colors from "vuetify/util/colors";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import { createRouter, createWebHistory } from "vue-router";
@@ -14,6 +15,17 @@ const vuetify = createVuetify({
   directives,
   icons: {
     defaultSet: "mdi",
+  },
+  theme: {
+    themes: {
+      light: {
+        dark: false,
+        colors: {
+          primary: colors.red.darken1, // #E53935
+          secondary: colors.red.lighten4, // #FFCDD2
+        },
+      },
+    },
   },
 });
 const router = createRouter({
