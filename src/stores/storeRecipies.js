@@ -2,22 +2,25 @@ import { defineStore } from "pinia";
 import axios from "axios";
 export const useStoreRecipies = defineStore("storeRecipies", {
   state: () => ({
-    raz: [1, 2, 3, 4, 5],
-    data: [
-      {
-        name: "name",
-      },
-    ],
-    recipiess: null,
+    recipies: null,
   }),
-  getters: {},
+  getters: {
+    getterRecipe() {
+      return this.recipies;
+    },
+    getTime(time) {
+      return (
+        new Date(time).getHours() + "." + new Date(time).getMinutes() + " ч."
+      );
+    },
+  },
   actions: {
     async getRecipies() {
       const res = await fetch(
         "https://script.google.com/macros/s/AKfycbwYNA8D-po1XiLlgRFE3G1TZPi5nl09hmVQARnr0TdENmAwiZhDHWT4KZzu1Pl1hVCqgA/exec"
       );
       const data = await res.json();
-      this.recipiess = data;
+      this.recipies = data;
     },
     async asyncis() {
       axios.post(

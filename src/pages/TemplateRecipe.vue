@@ -109,8 +109,8 @@ export default {
           })
         },
         postRecipe(){
+          console.log(new Date(store.getterRecipe.recipies[0].Time).getHours() + "." + new Date(store.getterRecipe.recipies[0].Time).getMinutes())
           const formData = new FormData(this.$refs.form)
-          console.log(formData.values())
           if(this.amenities==0) {
             formData.set("Category","Мясо")
           }else if(this.amenities==1){
