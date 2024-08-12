@@ -109,7 +109,6 @@ export default {
           })
         },
         postRecipe(){
-          console.log(new Date(store.getterRecipe.recipies[0].Time).getHours() + "." + new Date(store.getterRecipe.recipies[0].Time).getMinutes())
           const formData = new FormData(this.$refs.form)
           if(this.amenities==0) {
             formData.set("Category","Мясо")
@@ -128,7 +127,7 @@ export default {
           fetch('https://script.google.com/macros/s/AKfycbwYNA8D-po1XiLlgRFE3G1TZPi5nl09hmVQARnr0TdENmAwiZhDHWT4KZzu1Pl1hVCqgA/exec',{
             method:"POST",
             body:formData
-          })
+          })          
         },
       }
   }
