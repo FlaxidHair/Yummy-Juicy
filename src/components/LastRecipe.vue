@@ -10,9 +10,9 @@
                             <v-card-title class="mr-auto ml-auto">{{recipe.at(-1).Name}}</v-card-title>
                          
                             <div class="d-flex w-100 justify-center">
-                            <v-card-subtitle class="w-75">{{recipe.at(-1).Ingridients}}</v-card-subtitle>
+                                <div class="border-thin ml-1 pa-1 align-self-center">{{ recipe.at(-1).Category }}</div>
+                            <v-card-subtitle class="w-50 pa-1 align-self-center">{{recipe.at(-1).Ingridients}}</v-card-subtitle>
                             <div class="border-thin mr-1 pa-1 align-self-center">{{store.getTime(recipe.at(-1).Time)}}</div>
-
                             </div>
                             <v-card-text>{{ recipe.at(-1).Description }}</v-card-text>
                             <img :src="recipe.at(-1).Image" class="w-100 h-50" alt="1">
@@ -26,7 +26,9 @@
                             <v-card-title class="mr-auto  ml-auto">{{recipe.at(-2).Name}}</v-card-title>
                          
                             <div class="d-flex w-100 justify-center">
-                            <v-card-subtitle class="w-75">{{recipe.at(-2).Ingridients}}</v-card-subtitle>
+                                <div class="border-thin ml-1 pa-1 align-self-center">{{ recipe.at(-2).Category }}</div>
+
+                            <v-card-subtitle class="w-50 pa-1 align-self-center">{{recipe.at(-2).Ingridients}}</v-card-subtitle>
                             <div class="border-thin mr-1 pa-1 align-self-center">{{store.getTime(recipe.at(-2).Time)}}</div>
 
                             </div>
@@ -42,7 +44,9 @@
                             <v-card-title class="mr-auto ml-auto">{{recipe.at(-3).Name}}</v-card-title>
                          
                             <div class="d-flex w-100 justify-center">
-                            <v-card-subtitle class="w-75">{{recipe.at(-3).Ingridients}}</v-card-subtitle>
+                                <div class="border-thin ml-1 pa-1 align-self-center">{{ recipe.at(-3).Category }}</div>
+
+                            <v-card-subtitle class="w-50 pa-1 align-self-center">{{recipe.at(-3).Ingridients}}</v-card-subtitle>
                             <div class="border-thin mr-1 pa-1 align-self-center">{{store.getTime(recipe.at(-3).Time)}}</div>
 
                             </div>
@@ -58,7 +62,9 @@
                             <v-card-title class="mr-auto ml-auto">{{recipe.at(-4).Name}}</v-card-title>
                          
                             <div class="d-flex w-100 justify-center">
-                            <v-card-subtitle class="w-75">{{recipe.at(-4).Ingridients}}</v-card-subtitle>
+                                <div class="border-thin ml-1 pa-1 align-self-center">{{ recipe.at(-4).Category }}</div>
+
+                            <v-card-subtitle class="w-50 pa-1 align-self-center">{{recipe.at(-4).Ingridients}}</v-card-subtitle>
                             <div class="border-thin mr-1 align-self-center">{{store.getTime(recipe.at(-4).Time)}}</div>
 
                             </div>
