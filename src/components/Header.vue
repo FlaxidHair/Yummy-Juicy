@@ -1,6 +1,6 @@
 <template>
  <div class="d-flex justify-center">
-  <v-app-bar :elevation="3" rounded class="bg-red-accent-1 mt-3 position-relative w-75 d-flex justify-center">
+  <v-app-bar :elevation="3" rounded class="bg-red-accent-1 mt-3 position-relative w-100 d-flex justify-center">
   <div class="ml-8">
     <v-app-bar-title class="d-flex ga-3 text-no-wrap">
         <RouterLink class="text-red-lighten-5" to="/">

@@ -12,9 +12,13 @@ export const useStoreRecipies = defineStore("storeRecipies", {
   },
   actions: {
     getTime(time) {
-      return (
-        new Date(time).getHours() + "." + new Date(time).getMinutes() + " ч."
-      );
+      const hours = new Date(time).getHours();
+      const minutes = new Date(time).getMinutes();
+      if (hours == 0) {
+        return minutes + " м.";
+      } else {
+        return hours + "." + minutes + " ч.";
+      }
     },
     async getRecipies() {
       const res = await fetch(
@@ -24,7 +28,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       this.recipies = data;
       this.lastItemRecipies = data;
     },
-    async asyncis() {
+    async postRecipies() {
       axios.post(
         "https://v1.slashapi.com/asd-3/google-sheets/trHA1e60zZ/list1",
         { data }

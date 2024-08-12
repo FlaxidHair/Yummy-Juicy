@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex flex-column align-center">
-        <v-container class="bg-white elevation-3 mt-15 w-75 d-flex flex-column">
+        <v-container class="bg-white elevation-3 mt-15 w-100 d-flex flex-column">
             <h2 class="mb-10 align-self-center">Последние заметки</h2>
             <div class="d-flex ga-10 mb-7">
                 <v-hover v-slot="{ isHovering, props }" open-delay="50">
