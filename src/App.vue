@@ -18,5 +18,6 @@ const store = useStoreRecipies();
 
  onMounted(()=>{
   store.getRecipies()
+  store.getNotes()
 })
 </script>
