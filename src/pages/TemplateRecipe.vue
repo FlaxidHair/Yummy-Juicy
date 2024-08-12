@@ -74,10 +74,10 @@
 </div>
 <form ref="form"> 
   <div class="px-10 d-flex flex-column">
-
     <v-text-field required name="Name" variant="outlined" prepend-inner-icon="mdi-tag-outline" label="Введите название рецепта"></v-text-field>
     <v-text-field required name="Ingridients" variant="outlined" multiple label="Введите ингредиенты" prepend-inner-icon="mdi-nutrition"></v-text-field>
     <v-textarea required name="Description" label="Описание рецепта" prepend-inner-icon="mdi-pot-steam" variant="outlined"></v-textarea>
+    <v-text-field required name="Image" variant="outlined" prepend-inner-icon="mdi-mushroom" label="Введите URL изображения"></v-text-field>
     <div class="d-flex"> 
         <v-switch color="blue" label="Добавить в любимые рецепты" class="d-flex text-blue" inset></v-switch>
         <v-btn @click="postRecipe()" type="button" class="w-25 my-5 ml-auto bg-red-accent-1 text-white" height="40px">Добавить</v-btn>
@@ -100,14 +100,6 @@ export default {
       time:""
     }),
       methods:{
-        showErr(){
-          this.$refs.form.forEach((el)=>{
-            if(el.value==""){
-              alert('!')
-              return
-            }
-          })
-        },
         postRecipe(){
           const formData = new FormData(this.$refs.form)
           if(this.amenities==0) {
@@ -127,7 +119,11 @@ export default {
           fetch('https://script.google.com/macros/s/AKfycbwYNA8D-po1XiLlgRFE3G1TZPi5nl09hmVQARnr0TdENmAwiZhDHWT4KZzu1Pl1hVCqgA/exec',{
             method:"POST",
             body:formData
-          })          
+          }).then((response)=>{
+            if(response.status==200) {
+              alert("Рецепт добавлен")
+            }
+          })         
         },
       }
   }

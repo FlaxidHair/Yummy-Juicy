@@ -19,8 +19,10 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       const minutes = new Date(time).getMinutes();
       if (hours == 0) {
         return minutes + " м.";
-      } else {
+      } else if (hours > 0) {
         return hours + "." + minutes + " ч.";
+      } else {
+        return "----";
       }
     },
     async getRecipies() {
@@ -36,12 +38,6 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       );
       const data = await res.json();
       this.notes = data;
-    },
-    async postRecipies() {
-      axios.post(
-        "https://v1.slashapi.com/asd-3/google-sheets/trHA1e60zZ/list1",
-        { data }
-      );
     },
   },
 });

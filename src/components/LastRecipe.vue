@@ -15,7 +15,7 @@
                             <div class="border-thin mr-1 pa-1 align-self-center">{{store.getTime(recipe.at(-1).Time)}}</div>
                             </div>
                             <v-card-text>{{ recipe.at(-1).Description }}</v-card-text>
-                            <img :src="recipe.at(-1).Image" class="w-100 h-50" alt="1">
+                            <img :src="recipe.at(-1).Image" class="w-100 h-50" alt="Тут могло быть изображения еды">
                         </v-card>
                     </RouterLink>
                 </v-hover>
@@ -33,7 +33,7 @@
 
                             </div>
                             <v-card-text>{{ recipe.at(-2).Description }}</v-card-text>
-                            <img :src="recipe.at(-2).Image" class="w-100 h-50" alt="1">
+                            <img :src="recipe.at(-2).Image" class="w-100 h-50" alt="Тут могло быть изображения еды">
                         </v-card>
                     </RouterLink>
                 </v-hover>
@@ -51,7 +51,7 @@
 
                             </div>
                             <v-card-text>{{ recipe.at(-3).Description }}</v-card-text>
-                            <img :src="recipe.at(-3).Image" class="w-100 h-50" alt="1">
+                            <img :src="recipe.at(-3).Image" class="w-100 h-50" alt="Тут могло быть изображения еды">
                         </v-card>
                     </RouterLink>
                 </v-hover>
@@ -69,7 +69,7 @@
 
                             </div>
                             <v-card-text>{{ recipe.at(-4).Description }}</v-card-text>
-                            <img :src="recipe.at(-4).Image" class="w-100 h-50" alt="1">
+                            <img :src="recipe.at(-4).Image" class="w-100 h-50" alt=" Тут могло быть изображения еды">
                         </v-card>
                     </RouterLink>
                 </v-hover>

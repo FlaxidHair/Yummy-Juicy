@@ -16,7 +16,7 @@ import {useStoreRecipies} from './stores/storeRecipies'
 import {onBeforeMount, onMounted} from 'vue'
 const store = useStoreRecipies();
 
- onBeforeMount(()=>{
+ onMounted(()=>{
   store.getRecipies()
 })
 </script>
