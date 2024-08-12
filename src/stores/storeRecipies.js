@@ -3,11 +3,14 @@ import axios from "axios";
 export const useStoreRecipies = defineStore("storeRecipies", {
   state: () => ({
     recipies: null,
-    lastItemRecipies: null,
+    notes: null,
   }),
   getters: {
     getterRecipe() {
       return this.recipies;
+    },
+    getterNotes() {
+      return this.notes;
     },
   },
   actions: {
@@ -26,7 +29,13 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       );
       const data = await res.json();
       this.recipies = data;
-      this.lastItemRecipies = data;
+    },
+    async getNotes() {
+      const res = await fetch(
+        "https://script.google.com/macros/s/AKfycbwn9VGFkrEJWUpIR73XgknPNKpRsRlTdA4ZsRJ32SPsBYsPQ86mv564us55E6lgedoJ6Q/exec"
+      );
+      const data = await res.json();
+      this.notes = data;
     },
     async postRecipies() {
       axios.post(
