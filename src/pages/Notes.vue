@@ -1,6 +1,8 @@
 <template>
-    <div class="main">
-        <h1>Заметки</h1>
+    <div class="main d-flex flex-column align-center">
+        <div class="w-75 ">
+        <v-text-field label="Введите заголовок"  class=""></v-text-field>
+    </div>
     </div>
 </template>
 

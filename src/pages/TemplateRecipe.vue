@@ -1,6 +1,6 @@
 <template>
-    <div class="main d-flex bg-white align-center align-self-center w-75 flex-column">
-        <h2 class="mt-15 mb-15">Добавить рецепт</h2>
+    <div class="main d-flex bg-white align-center align-self-center w-75 mb-10 flex-column">
+        <h2 class="mt-15 mb-10">Добавить рецепт</h2>
         <div class="w-66 ">
             <v-container class="elevation-2">
                 <div class="d-flex">
@@ -97,7 +97,7 @@ export default {
     data: () => ({
       amenities: [],
       ingridients:[],
-      time:""
+      time:"",
     }),
       methods:{
         postRecipe(){
@@ -121,9 +121,12 @@ export default {
             body:formData
           }).then((response)=>{
             if(response.status==200) {
+              store.getRecipies()    
               alert("Рецепт добавлен")
+              
             }
-          })         
+          })   
+        
         },
       }
   }

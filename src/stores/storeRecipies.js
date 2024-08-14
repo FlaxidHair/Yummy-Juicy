@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import axios from "axios";
+// import axios from "axios";
 export const useStoreRecipies = defineStore("storeRecipies", {
   state: () => ({
     recipies: null,
