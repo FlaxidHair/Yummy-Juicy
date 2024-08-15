@@ -4,6 +4,14 @@ export const useStoreRecipies = defineStore("storeRecipies", {
   state: () => ({
     recipies: null,
     notes: null,
+    category: {
+      meat: [],
+      fish: [],
+      salad: [],
+      soup: [],
+      garnish: [],
+      dessert: [],
+    },
   }),
   getters: {
     getterRecipe() {
@@ -38,6 +46,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       );
       const data = await res.json();
       this.notes = data;
+      console.log(data);
     },
   },
 });

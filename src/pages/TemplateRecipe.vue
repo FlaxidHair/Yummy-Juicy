@@ -1,7 +1,7 @@
 <template>
-    <div class="main d-flex bg-white align-center align-self-center w-75 mb-10 flex-column">
-        <h2 class="mt-15 mb-10">Добавить рецепт</h2>
-        <div class="w-66 ">
+    <div class="main d-flex align-center align-self-center w-75 mb-10 flex-column">
+        <h2 class="mt-10 mb-5">Добавить рецепт</h2>
+        <div class="w-66 bg-white">
             <v-container class="elevation-2">
                 <div class="d-flex">
             <v-card
@@ -12,7 +12,6 @@
   >
     <v-card-text>
       <h2 class="text-h6 mb-2 d-flex justify-center">Выберите категорию рецепта</h2>
-
       <v-chip-group
         v-model="amenities"
         column
@@ -123,10 +122,8 @@ export default {
             if(response.status==200) {
               store.getRecipies()    
               alert("Рецепт добавлен")
-              
             }
           })   
-        
         },
       }
   }
