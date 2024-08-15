@@ -20,6 +20,29 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     getterNotes() {
       return this.notes;
     },
+    getterCategory() {
+      this.recipies.recipies.forEach((el) => {
+        if (el.Category == "Мясо") {
+          this.category.meat.push(el);
+        }
+        if (el.Category == "Рыба") {
+          this.category.fish.push(el);
+        }
+        if (el.Category == "Суп") {
+          this.category.soup.push(el);
+        }
+        if (el.Category == "Гарнир") {
+          this.category.garnish.push(el);
+        }
+        if (el.Category == "Десерт") {
+          this.category.dessert.push(el);
+        }
+        if (el.Category == "Салат") {
+          this.category.salad.push(el);
+        }
+      });
+      return this.category;
+    },
   },
   actions: {
     getTime(time) {
@@ -46,7 +69,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       );
       const data = await res.json();
       this.notes = data;
-      console.log(data);
+      console.log(this.getterCategory);
     },
   },
 });
