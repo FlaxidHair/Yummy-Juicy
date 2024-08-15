@@ -6,10 +6,10 @@
         <div class="w-50 mr-auto ml-auto border-thin mb-5">
             <form ref="forma">
             <div class="d-flex">
-        <v-text-field name="Title"  label="Введите заголовок" tile variant="solo"  hide-details class=""></v-text-field>
+        <v-text-field name="Title"  v-model="title" label="Введите заголовок" tile variant="solo"  hide-details class=""></v-text-field>
                 <v-btn @click="postNote()" class="elevation-2" width="120px" tile height="56px" flat>Добавить</v-btn>
         </div>
-        <v-textarea name="Subtitle" label="Введите заметку" no-resize max-rows="10" tile variant="filled" hide-details class=""></v-textarea>
+        <v-textarea v-model="subTitle" name="Subtitle" label="Введите заметку" no-resize max-rows="10" tile variant="filled" hide-details class=""></v-textarea>
     </form>    
     </div>
 
@@ -29,12 +29,16 @@ import {useStoreRecipies} from '../stores/storeRecipies'
 import {ref} from 'vue'
 const store = useStoreRecipies();
 const forma = ref(null)
+const title = ref("")
+const subTitle = ref("")
 function postNote(){
           fetch('https://script.google.com/macros/s/AKfycbwn9VGFkrEJWUpIR73XgknPNKpRsRlTdA4ZsRJ32SPsBYsPQ86mv564us55E6lgedoJ6Q/exec',{
             method:"POST",
             body:new FormData(forma.value),
           }).then((response)=>{
             if(response.status==200) {
+              title.value = ""
+              subTitle.value=""
               store.getNotes()    
               alert("Заметка добавлена")
             }
