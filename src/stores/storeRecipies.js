@@ -11,6 +11,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       soup: [],
       garnish: [],
       dessert: [],
+      startShow: 0,
     },
   }),
   getters: {

@@ -12,8 +12,8 @@
 <script setup>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-import {useStoreRecipies} from './stores/storeRecipies'
-import {onBeforeMount, onMounted} from 'vue'
+import {useStoreRecipies} from './stores/storeRecipies';
+import {onMounted} from 'vue'
 const store = useStoreRecipies();
 
  onMounted(()=>{
