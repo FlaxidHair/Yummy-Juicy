@@ -11,8 +11,9 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       soup: [],
       garnish: [],
       dessert: [],
-      startShow: 0,
     },
+    startShow: 0,
+    amenities: [0],
   }),
   getters: {
     getterRecipe() {
@@ -29,7 +30,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
         if (el.Category == "Рыба") {
           this.category.fish.push(el);
         }
-        if (el.Category == "Суп") {
+        if (el.Category == "Супы") {
           this.category.soup.push(el);
         }
         if (el.Category == "Гарнир") {
@@ -38,7 +39,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
         if (el.Category == "Десерт") {
           this.category.dessert.push(el);
         }
-        if (el.Category == "Салат") {
+        if (el.Category == "Салаты") {
           this.category.salad.push(el);
         }
       });
