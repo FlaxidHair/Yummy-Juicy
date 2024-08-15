@@ -69,7 +69,6 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       );
       const data = await res.json();
       this.notes = data;
-      console.log(this.getterCategory);
     },
   },
 });
