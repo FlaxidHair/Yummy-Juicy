@@ -12,6 +12,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       garnish: [],
       dessert: [],
     },
+    randomState: 0,
     startShow: 0,
     amenities: [0],
   }),
@@ -45,8 +46,37 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       });
       return this.category;
     },
+    GetterRandom() {
+      return this.randomDish(0, this.getterCategory.meat.length - 1);
+    },
+    getMeatName() {
+      return {
+        name: this.getterCategory.meat[this.GetterRandom].Name,
+        image: this.getterCategory.meat[this.GetterRandom].Image,
+      };
+    },
+    getGarnishName() {
+      return {
+        name: this.getterCategory.garnish[this.GetterRandom].Name,
+        image: this.getterCategory.garnish[this.GetterRandom].Image,
+      };
+    },
+    getSaladName() {
+      return {
+        name: this.getterCategory.salad[this.GetterRandom].Name,
+        image: this.getterCategory.salad[this.GetterRandom].Image,
+      };
+    },
   },
   actions: {
+    randomDish(min, max) {
+      let rand = min + Math.random() * (max + 1 - min);
+      return Math.floor(rand);
+    },
+    getRandom() {
+      this.randomState = 1;
+      return this.getMeatName;
+    },
     getTime(time) {
       const hours = new Date(time).getHours();
       const minutes = new Date(time).getMinutes();
@@ -71,6 +101,9 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       );
       const data = await res.json();
       this.notes = data;
+      setTimeout(() => {
+        console.log(this.GetterRandom);
+      }, 1000);
     },
   },
 });
