@@ -12,7 +12,7 @@
                 <v-card height="350" :elevation="4" class="w-33 d-flex flex-column align-center">
                     <v-card-subtitle class="mt-2">{{store.getGarnishName.name}}</v-card-subtitle>
                     <v-card-title>Макароны</v-card-title>
-                    <img :src="store.getGarnishName.image   " alt="Image of dish" class="w-100 h-100">
+                    <img :src="store.getGarnishName.image" alt="Image of dish" class="w-100 h-100">
                 </v-card>
                 <v-card height="350" :elevation="4" class="w-33 d-flex flex-column align-center">
                     <v-card-subtitle class="mt-2">Салат</v-card-subtitle>
@@ -29,6 +29,4 @@
 <script setup>
 import {useStoreRecipies} from '../stores/storeRecipies'
 const store = useStoreRecipies();
-
-
 </script>

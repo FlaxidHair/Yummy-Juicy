@@ -4,6 +4,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
   state: () => ({
     recipies: null,
     notes: null,
+    lastRecipies: [],
     category: {
       meat: [],
       fish: [],
@@ -19,6 +20,9 @@ export const useStoreRecipies = defineStore("storeRecipies", {
   getters: {
     getterRecipe() {
       return this.recipies;
+    },
+    getterLastRecipies() {
+      return this.lastRecipies;
     },
     getterNotes() {
       return this.notes;
@@ -94,6 +98,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       );
       const data = await res.json();
       this.recipies = data;
+      this.lastRecipies = data.recipies.slice(-4).reverse();
     },
     async getNotes() {
       const res = await fetch(
@@ -101,9 +106,6 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       );
       const data = await res.json();
       this.notes = data;
-      setTimeout(() => {
-        console.log(this.GetterRandom);
-      }, 1000);
     },
   },
 });
