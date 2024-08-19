@@ -2,8 +2,8 @@
     <div>
         <v-container class="mt-15 w-100 d-flex bg-white elevation-3 flex-column">
             <h2 class="mb-10 align-self-center">Последние рецепты</h2>
-<div class="d-flex w-100 ga-5">
-            <div v-for="recipe in store.getterLastRecipies" :key="item" class="d-flex w-25 ga-5 mb-7">
+<!-- <div class="d-flex w-100 ga-5">
+            <div v-for="recipe in store.getterLastRecipies" Ж :key="item" class="d-flex w-25 ga-5 mb-7">
                 <v-hover v-slot="{ isHovering, props }" open-delay="50">
                     <div class="w-100 cursor-pointer  d-flex" v-bind="activatorProps">
                         <v-card  class="d-flex flex-column align-center" height="600" :class="isHovering, props"
@@ -19,9 +19,9 @@
                                 <v-card-text class="h-25 text-caption">{{ recipe.Description }}</v-card-text>
                             <img :src="recipe.Image" class="w-100 h-50" alt="Тут могло быть изображения еды">
                         </v-card>
-                    </div>
-                </v-hover>
-              
+                    </div> -->
+                <!-- </v-hover> -->
+                <Hover></Hover>
                 <!-- <v-dialog max-width="1000">
         <template v-slot:activator="{ props: activatorProps }">
             <v-hover v-slot="{ isHovering, props }" open-delay="50">
@@ -117,8 +117,8 @@
                         </v-card>
                     </RouterLink>
                 </v-hover> --> 
-            </div>
-        </div>
+            <!-- </div> -->
+        <!-- </div> -->
         </v-container>
     </div>
 </template>
@@ -126,5 +126,5 @@
 <script setup>
 import { useStoreRecipies } from '../stores/storeRecipies'
 const store = useStoreRecipies();
-
+import Hover from '../components/LastRecipiesDialog.vue'
 </script>
