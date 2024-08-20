@@ -5,6 +5,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     recipies: null,
     notes: null,
     lastRecipies: [],
+    selectRecipe: null,
     category: {
       meat: [],
       fish: [],

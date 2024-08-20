@@ -1,12 +1,12 @@
 <template>
     <div>
-        <v-dialog  max-width="500" >
+        <v-dialog  max-width="800" >
         <template v-slot:activator="{ props: activatorProps }">
             <div class="d-flex ga-5">
-            <div v-for="recipe in store.getterLastRecipies" :item="recipe" :key="recipe" class="d-flex w-25 ga-5 mb-7">
+            <div v-for="recipe in store.getterLastRecipies" ref="recipe"  :key="recipe" class="d-flex w-25 ga-5 mb-7">
                 <v-hover  v-slot="{ isHovering, props }" open-delay="50">
-                    <div  class="w-100 cursor-pointer d-flex" v-bind="activatorProps">
-                        <v-card class="d-flex flex-column align-center" height="600" :class="isHovering, props"
+                    <div @click="()=>{store.selectRecipe = recipe}" :item="recipe" class="w-100 cursor-pointer d-flex" v-bind="activatorProps">
+                        <v-card  class="d-flex flex-column align-center" height="600" :class="isHovering, props"
                             v-bind="props" :elevation="isHovering ? 8 : 2">
                             <v-card-title class="mr-auto ml-auto">{{recipe.Name }}</v-card-title>
                             <div class="d-flex w-100 justify-center">
@@ -26,27 +26,50 @@
         </template>
 
         <template v-slot:default="{ isActive }">
-          <v-card >
-            <v-card-title>
-                {{model}}
+          <v-card class="d-flex flex-column">
+            <div class="d-flex mt-1">
+                <v-card-title>
+                {{ store.selectRecipe.Name }}
             </v-card-title>
-
-            <v-card-actions>
+                <v-card-actions class="ml-auto align-end mr-2">
               <v-spacer></v-spacer>
-
               <v-btn
-                text="Close Dialog"
+                text="Закрыть"
                 @click="isActive.value = false"
               ></v-btn>
             </v-card-actions>
+            </div>
+          
+           
+            <div class="d-flex ">
+                <div>
+                <v-card-text class="border-thin py-2 px-1 ml-5 mr"> {{ store.selectRecipe.Category }}</v-card-text>
+                </div>
+                <v-card-subtitle class="ml-auto border-thin py-2 px-1 mr-5">{{store.getTime(store.selectRecipe.Time)  }}</v-card-subtitle>
+            </div>
+            <v-card-text>{{ store.selectRecipe.Ingridients }}</v-card-text>
+            <v-card-text>{{ store.selectRecipe.Description }}</v-card-text>
+            <img :src="store.selectRecipe.Image" alt="Изображение блюда">
           </v-card>
         </template>
       </v-dialog>
     </div>
 </template>
 
-<script setup>
+<script>
 import {useStoreRecipies} from '../stores/storeRecipies'
-const store = useStoreRecipies();
-
+export default {
+    setup(){
+                const store = useStoreRecipies();
+                return {
+                    store
+                }
+            },
+     data(){
+        return {
+           props:['recipe']
+        }
+     },
+    
+    }
 </script>
