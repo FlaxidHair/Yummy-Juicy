@@ -4,7 +4,7 @@
     <v-row justify="center" no-gutters>
         <ul class="d-flex ga-5">
         <RouterLink to="/"><li><v-btn class="bg-transparent elevation-1 text-white">Главная</v-btn></li></RouterLink>
-        <RouterLink to="/dishes"><li><v-btn class="bg-transparent elevation-1 text-white">Блюда</v-btn></li></RouterLink>
+        <RouterLink to="/favotire"><li><v-btn class="bg-transparent elevation-1 text-white">Блюда</v-btn></li></RouterLink>
         <RouterLink to="/recipies"><li><v-btn class="bg-transparent elevation-1 text-white">Рецепты</v-btn></li></RouterLink>
         <RouterLink to="/template-recipe"><li><v-btn class="bg-transparent elevation-1 text-white">Создать рецепт</v-btn></li></RouterLink>
         <RouterLink to="notes"><li><v-btn class="bg-transparent elevation-1 text-white">Заметки</v-btn></li></RouterLink>

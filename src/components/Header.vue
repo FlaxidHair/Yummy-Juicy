@@ -11,7 +11,7 @@
 </div>
 <div class="ml-auto" >
     <ul class="d-flex">
-        <RouterLink to="/dishes"><li><v-btn class="text-white">Блюда</v-btn></li></RouterLink>
+        <RouterLink to="/Favorite"><li><v-btn class="text-white">Избранное</v-btn></li></RouterLink>
         <RouterLink to="/recipies"><li><v-btn class="text-white">Рецепты</v-btn></li></RouterLink>
         <RouterLink to="/template-recipe"><li><v-btn class="text-white">Создать рецепт</v-btn></li></RouterLink>
         <RouterLink to="notes"><li class="text-white"><v-btn>Заметки</v-btn></li></RouterLink>

@@ -37,9 +37,9 @@ const router = createRouter({
       component: () => import("./pages/MainPage.vue"),
     },
     {
-      path: "/Dishes",
-      name: "dishes",
-      component: () => import("./pages/Dishes.vue"),
+      path: "/Favorite",
+      name: "favorite",
+      component: () => import("./pages/Favorite.vue"),
     },
     {
       path: "/Notes",
