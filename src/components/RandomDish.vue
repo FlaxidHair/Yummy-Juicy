@@ -23,9 +23,6 @@
         </v-container>
 </template>
 
-<style>
-</style>
-
 <script setup>
 import {useStoreRecipies} from '../stores/storeRecipies'
 const store = useStoreRecipies();

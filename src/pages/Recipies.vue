@@ -1,5 +1,5 @@
 <template>
-    <div class="main d-flex flex-column align-center mt-5 mb-5">
+    <div class="main w-100 d-flex flex-column align-center mt-5 mb-5">
         <h2 class="mb-5 mt-5">
             Рецепты
         </h2> 

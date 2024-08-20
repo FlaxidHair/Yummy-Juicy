@@ -1,5 +1,5 @@
 <template>
-    <div  class="d-flex justify-center ga-5 mb-7 flex-wrap">
+    <div  class="d-flex justify-center ga-5 mb-7 flex-wrap w-100">
                 <v-hover v-for="recipe in store.getterCategory.fish" :key="item" v-slot="{ isHovering, props }" open-delay="50">
                     <RouterLink class="w-25 cursor-pointer" to="">
                         <v-card  class="d-flex flex-column align-center" height="600" :class="isHovering, props"
