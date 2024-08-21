@@ -6,6 +6,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     notes: null,
     lastRecipies: [],
     lastNotes: [],
+    randomCount: 0,
     selectRecipe: null,
     selectNote: null,
     category: {
@@ -54,28 +55,32 @@ export const useStoreRecipies = defineStore("storeRecipies", {
           }
         });
       }
-
       return this.category;
     },
     GetterRandom() {
-      return this.randomDish(0, this.getterCategory.meat.length - 1);
+      let hook = this.randomCount;
+      return {
+        meat: this.randomDish(0, this.getterCategory.meat.length - 1),
+        garnish: this.randomDish(0, this.getterCategory.garnish.length - 1),
+        salad: this.randomDish(0, this.getterCategory.salad.length - 1),
+      };
     },
     getMeatName() {
       return {
-        name: this.getterCategory.meat[this.GetterRandom].Name,
-        image: this.getterCategory.meat[this.GetterRandom].Image,
+        name: this.getterCategory.meat[this.GetterRandom.meat].Name,
+        image: this.getterCategory.meat[this.GetterRandom.meat].Image,
       };
     },
     getGarnishName() {
       return {
-        name: this.getterCategory.garnish[this.GetterRandom].Name,
-        image: this.getterCategory.garnish[this.GetterRandom].Image,
+        name: this.getterCategory.garnish[this.GetterRandom.garnish].Name,
+        image: this.getterCategory.garnish[this.GetterRandom.garnish].Image,
       };
     },
     getSaladName() {
       return {
-        name: this.getterCategory.salad[this.GetterRandom].Name,
-        image: this.getterCategory.salad[this.GetterRandom].Image,
+        name: this.getterCategory.salad[this.GetterRandom.salad].Name,
+        image: this.getterCategory.salad[this.GetterRandom.salad].Image,
       };
     },
   },
@@ -86,7 +91,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     },
     getRandom() {
       this.randomState = 1;
-      return this.getMeatName;
+      this.randomCount++;
     },
     getTime(time) {
       const hours = new Date(time).getHours();
@@ -116,6 +121,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       const data = await res.json();
       this.notes = data;
       this.lastNotes = data.notes.slice(-4).reverse();
+      console.log(this.getterCategory);
     },
   },
 });
