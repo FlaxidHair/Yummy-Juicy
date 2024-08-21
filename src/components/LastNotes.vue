@@ -2,11 +2,61 @@
     <div class="d-flex flex-column align-center">
         <v-container class="bg-white elevation-3 mt-15 w-75 d-flex flex-column">
             <h2 class="mb-10 align-self-center">Последние заметки</h2>
-            <div class="d-flex ga-5 w-100">
-            <div class="d-flex ga-10 mb-7" v-for="note in store.getterNotes" :key="note">
+            <v-dialog max-width="800">
+            <template v-slot:activator="{ props: activatorProps }">
+                <div class="d-flex ga-5 justify-center">
+                    <div v-for="note in store.getterNotes" :key="note"
+                        class="d-flex  ga-5 mb-7">
+                        <v-hover v-slot="{ isHovering, props }" open-delay="50">
+                            <div @click="() => { store.selectNote = note }" :item="note"
+                                class="w-100 cursor-pointer d-flex" v-bind="activatorProps">
+                                <v-card class="d-flex flex-column align-center" min-width="300px" height="200px" :class="isHovering, props"
+                                    v-bind="props" :elevation="isHovering ? 8 : 2">
+                                    <v-card-title class="mr-auto ml-auto">{{ note.Title }}</v-card-title>
+                                    <v-card-text class="h-25 text-caption">{{ note.Subtitle }}</v-card-text>
+                                </v-card>
+                            </div>
+                        </v-hover>
+                    </div>
+                </div>
+            </template>
+
+            <template v-slot:default="{ isActive }">
+                <v-card class="d-flex flex-column">
+                    <div class="d-flex mt-1">
+                        <v-card-title>
+                            {{ store.selectNote.Title }}
+                        </v-card-title>
+                        <v-card-actions class="ml-auto align-end mr-2">
+                            <v-spacer></v-spacer>
+                            <v-btn text="Закрыть" @click="isActive.value = false"></v-btn>
+                        </v-card-actions>
+                    </div>
+                    <v-card-text>{{ store.selectNote.Subtitle }}</v-card-text>  
+                </v-card>
+            </template>
+        </v-dialog>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <v-dialog max-width="500">
+                <template v-slot:activator="{ props: activatorProps }">
+            <div class="d-flex ga-5 justify-center">
+            <div class="d-flex ga-10 mb-7" @click="() => { store.selectNote = note }" v-for="note in store.getterNotes" :key="note">
                 <v-hover v-slot="{ isHovering, props }" open-delay="50">
                     <RouterLink class="w-100 cursor-pointer" to="">
-                        <v-card class="d-flex flex-column align-center" min-height="200px" max-height="500" :class="isHovering, props" v-bind="props" :elevation="isHovering ? 8 : 2">
+                        <v-card class="d-flex flex-column align-center flex-wrap" min-height="200px" max-height="500" :class="isHovering, props" v-bind="props" :elevation="isHovering ? 8 : 2">
                             <v-card-title>{{ note.Title }}</v-card-title>
                             <v-card-text>{{note.Subtitle}}</v-card-text>
                         </v-card>
@@ -14,6 +64,19 @@
                 </v-hover>
             </div>
         </div>
+    </template>
+    
+    <template v-slot:default="{ isActive }">
+                <v-card class="d-flex flex-column">
+                  <v-card-title>
+                    {{ store.selectNote.Title }}
+                  </v-card-title>
+                  <v-card-text>
+                    {{ store.selectNote.Subtitle }}
+                  </v-card-text>
+                </v-card>
+            </template>
+        </v-dialog> -->
         </v-container>
     </div>
 </template>

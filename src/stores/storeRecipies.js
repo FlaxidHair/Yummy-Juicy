@@ -7,6 +7,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     lastRecipies: [],
     lastNotes: [],
     selectRecipe: null,
+    selectNote: null,
     category: {
       meat: [],
       fish: [],
@@ -115,7 +116,6 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       const data = await res.json();
       this.notes = data;
       this.lastNotes = data.notes.slice(-4).reverse();
-      console.log(this.lastNotes);
     },
   },
 });
