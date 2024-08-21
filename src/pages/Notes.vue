@@ -16,7 +16,7 @@
         <v-divider></v-divider>
     </v-container>
     <div class="d-flex ga-5 flex-wrap">
-   <v-card class="" v-for="note in store.getterNotes.notes" :key="note">
+   <v-card v-for="note in store.getterNotes" :key="note">
         <v-card-title >{{ note.Title }}</v-card-title>
         <v-card-text >{{ note.Subtitle }}</v-card-text>
    </v-card>
@@ -26,7 +26,10 @@
 
 <script setup>
 import {useStoreRecipies} from '../stores/storeRecipies'
-import {ref} from 'vue'
+import {ref,onMounted} from 'vue'
+onMounted(()=>{
+  store.getNotes
+})
 const store = useStoreRecipies();
 const forma = ref(null)
 const title = ref("")

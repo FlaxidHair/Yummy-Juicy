@@ -2,9 +2,10 @@ import { defineStore } from "pinia";
 // import axios from "axios";
 export const useStoreRecipies = defineStore("storeRecipies", {
   state: () => ({
-    recipies: null,
+    recipies: [],
     notes: null,
     lastRecipies: [],
+    lastNotes: [],
     selectRecipe: null,
     category: {
       meat: [],
@@ -14,6 +15,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       garnish: [],
       dessert: [],
     },
+    loading: false,
     randomState: 0,
     startShow: 0,
     amenities: [0],
@@ -26,29 +28,32 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       return this.lastRecipies;
     },
     getterNotes() {
-      return this.notes;
+      return this.lastNotes;
     },
     getterCategory() {
-      this.recipies.recipies.forEach((el) => {
-        if (el.Category == "Мясо") {
-          this.category.meat.push(el);
-        }
-        if (el.Category == "Рыба") {
-          this.category.fish.push(el);
-        }
-        if (el.Category == "Супы") {
-          this.category.soup.push(el);
-        }
-        if (el.Category == "Гарнир") {
-          this.category.garnish.push(el);
-        }
-        if (el.Category == "Десерт") {
-          this.category.dessert.push(el);
-        }
-        if (el.Category == "Салаты") {
-          this.category.salad.push(el);
-        }
-      });
+      if (this.loading == false) {
+        this.recipies.recipies.forEach((el) => {
+          if (el.Category == "Мясо") {
+            this.category.meat.push(el);
+          }
+          if (el.Category == "Рыба") {
+            this.category.fish.push(el);
+          }
+          if (el.Category == "Супы") {
+            this.category.soup.push(el);
+          }
+          if (el.Category == "Гарнир") {
+            this.category.garnish.push(el);
+          }
+          if (el.Category == "Десерт") {
+            this.category.dessert.push(el);
+          }
+          if (el.Category == "Салаты") {
+            this.category.salad.push(el);
+          }
+        });
+      }
+
       return this.category;
     },
     GetterRandom() {
@@ -94,12 +99,14 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       }
     },
     async getRecipies() {
+      this.loading = true;
       const res = await fetch(
         "https://script.google.com/macros/s/AKfycbwYNA8D-po1XiLlgRFE3G1TZPi5nl09hmVQARnr0TdENmAwiZhDHWT4KZzu1Pl1hVCqgA/exec"
       );
       const data = await res.json();
       this.recipies = data;
       this.lastRecipies = data.recipies.slice(-4).reverse();
+      this.loading = false;
     },
     async getNotes() {
       const res = await fetch(
@@ -107,6 +114,8 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       );
       const data = await res.json();
       this.notes = data;
+      this.lastNotes = data.notes.slice(-4).reverse();
+      console.log(this.lastNotes);
     },
   },
 });

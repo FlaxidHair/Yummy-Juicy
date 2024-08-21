@@ -19,7 +19,3 @@
 
 <script>
 </script>
-
-<style>
-
-</style>

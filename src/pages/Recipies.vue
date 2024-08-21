@@ -39,5 +39,11 @@ import FilterSoup from '../components/FilterSoup.vue';
 import FilterDessert from '../components/FilterDessert.vue';
 import FilterGarnish from '../components/FilterGarnish.vue';
 import FilterGroup from '../components/FilterGroup.vue';
+
+import {onUpdated} from 'vue'
+
+onUpdated(()=>{
+    store.getRecipies
+})
 </script>
 
