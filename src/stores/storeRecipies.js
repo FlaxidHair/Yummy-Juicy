@@ -3,10 +3,12 @@ import { defineStore } from "pinia";
 export const useStoreRecipies = defineStore("storeRecipies", {
   state: () => ({
     recipies: [],
-    notes: null,
+    notes: [],
     lastRecipies: [],
     lastNotes: [],
     randomCount: 0,
+    dialog: false,
+    dialog2: false,
     selectRecipe: null,
     selectNote: null,
     category: {
@@ -29,8 +31,11 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     getterLastRecipies() {
       return this.lastRecipies;
     },
-    getterNotes() {
+    getterLastNotes() {
       return this.lastNotes;
+    },
+    getterNotes() {
+      return this.notes.notes;
     },
     getterCategory() {
       if (this.loading == false) {
@@ -118,10 +123,32 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       const res = await fetch(
         "https://script.google.com/macros/s/AKfycbwf7Ty0tbwPJJbm3gb9FRW0wk0kMRoyqCNeK9xMB9n4a0pfWktu3eiWnbB2dzeLHrcO/exec"
       );
+      console.log(res);
       const data = await res.json();
       this.notes = data;
       this.lastNotes = data.notes.slice(-4).reverse();
-      console.log(this.getterCategory);
+    },
+    async deleteNote(noteId) {
+      const res = await fetch(
+        `https://script.google.com/macros/s/AKfycbyTVQlk2yGHUl3pbWIucfHH3Tox7ehlnVrQxPkqXgH2uU9UAEhLw5HxupHRwjc3AKU3/exec?value=${noteId}`
+      ).then((res) => {
+        if (res.status == 200) {
+          this.getNotes();
+          alert("Заметка удалена");
+          this.dialog = false;
+        }
+      });
+    },
+    async deleteNote(noteId) {
+      const res = await fetch(
+        `https://script.google.com/macros/s/AKfycbyTVQlk2yGHUl3pbWIucfHH3Tox7ehlnVrQxPkqXgH2uU9UAEhLw5HxupHRwjc3AKU3/exec?value=${noteId}`
+      ).then((res) => {
+        if (res.status == 200) {
+          this.getNotes();
+          alert("Рецепт удален");
+          this.dialog2 = false;
+        }
+      });
     },
   },
 });

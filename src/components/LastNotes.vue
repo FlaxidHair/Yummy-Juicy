@@ -5,7 +5,7 @@
             <v-dialog max-width="800">
             <template v-slot:activator="{ props: activatorProps }">
                 <div class="d-flex ga-5 justify-center">
-                    <div v-for="note in store.getterNotes" :key="note"
+                    <div v-for="note in store.getterLastNotes" :key="note"
                         class="d-flex  ga-5 mb-7">
                         <v-hover v-slot="{ isHovering, props }" open-delay="50">
                             <div @click="() => { store.selectNote = note }" :item="note"
@@ -33,11 +33,25 @@
                         </v-card-actions>
                     </div>
                     <v-card-text>{{ store.selectNote.Subtitle }}</v-card-text>  
+                    <v-btn
+            class="ml-auto mb-5 mr-5 bg-red my-2"
+            text="Удалить"
+            @click="store.dialog = true"
+          ></v-btn>
                 </v-card>
             </template>
         </v-dialog>
         </v-container>
     </div>
+    <v-dialog v-model="store.dialog" max-width="300">
+      <v-card title="Удалить заметку?">
+        <v-card-actions>
+            <v-btn text="Да" class="bg-red" variant="text" @click="()=>{store.deleteNote(store.selectNote.ID)}"></v-btn>
+          <v-spacer></v-spacer>
+          <v-btn text="Нет" variant="text" @click="store.dialog = false"></v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
 </template>
 
 <script setup>
