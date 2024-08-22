@@ -87,6 +87,16 @@
                 </v-card>
             </template>
         </v-dialog>
+        <v-dialog v-model="store.dialog" max-width="300">
+      <v-card title="Удалить рецепт?">
+        <v-card-actions>
+            <v-btn text="Да" class="bg-red" variant="text" @click="()=>{store.deleteRecipe(store.selectRecipe.ID)}"></v-btn>
+          <v-spacer></v-spacer>
+          <v-btn text="Нет" variant="text" @click="store.dialog = false"></v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+        <v-divider></v-divider>
     </div>
 </template>
 

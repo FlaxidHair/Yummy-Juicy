@@ -114,6 +114,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       const res = await fetch(
         "https://script.google.com/macros/s/AKfycbw4BJY0TtaC1QaUnZtxhHXusYcNV-AL_pQn2iZKbInP5serwWDpfJm_S9Cn_R6x4S8r3g/exec"
       );
+
       const data = await res.json();
       this.recipies = data;
       this.lastRecipies = data.recipies.slice(-4).reverse();
@@ -139,14 +140,14 @@ export const useStoreRecipies = defineStore("storeRecipies", {
         }
       });
     },
-    async deleteNote(noteId) {
+    async deleteRecipe(recipeID) {
       const res = await fetch(
-        `https://script.google.com/macros/s/AKfycbyTVQlk2yGHUl3pbWIucfHH3Tox7ehlnVrQxPkqXgH2uU9UAEhLw5HxupHRwjc3AKU3/exec?value=${noteId}`
+        `https://script.google.com/macros/s/AKfycbzU0Ei88Ofvx5-jSZWD3-1YB1Lto1iG-2mfibsVrm65CO-YwrV6T8aQOJKqx4lF3di6JQ/exec?value=${recipeID}`
       ).then((res) => {
         if (res.status == 200) {
-          this.getNotes();
+          this.getRecipies();
           alert("Рецепт удален");
-          this.dialog2 = false;
+          this.dialog = false;
         }
       });
     },
