@@ -107,7 +107,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     async getRecipies() {
       this.loading = true;
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbz_xGJL8mZi6Zt14wZe-d8mIBKaysXwNb7nr0WWSPb6Qh3blZL5KABXY5yRlMM6xDVE/exec"
+        "https://script.google.com/macros/s/AKfycbw4BJY0TtaC1QaUnZtxhHXusYcNV-AL_pQn2iZKbInP5serwWDpfJm_S9Cn_R6x4S8r3g/exec"
       );
       const data = await res.json();
       this.recipies = data;
@@ -116,7 +116,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     },
     async getNotes() {
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbwn9VGFkrEJWUpIR73XgknPNKpRsRlTdA4ZsRJ32SPsBYsPQ86mv564us55E6lgedoJ6Q/exec"
+        "https://script.google.com/macros/s/AKfycbwf7Ty0tbwPJJbm3gb9FRW0wk0kMRoyqCNeK9xMB9n4a0pfWktu3eiWnbB2dzeLHrcO/exec"
       );
       const data = await res.json();
       this.notes = data;

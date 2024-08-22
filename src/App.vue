@@ -21,6 +21,4 @@ const store = useStoreRecipies();
   store.getRecipies()
   store.getNotes()
 })
-
-
 </script>

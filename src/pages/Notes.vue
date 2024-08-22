@@ -35,7 +35,7 @@ const forma = ref(null)
 const title = ref("")
 const subTitle = ref("")
 function postNote(){
-          fetch('https://script.google.com/macros/s/AKfycbwn9VGFkrEJWUpIR73XgknPNKpRsRlTdA4ZsRJ32SPsBYsPQ86mv564us55E6lgedoJ6Q/exec',{
+          fetch('https://script.google.com/macros/s/AKfycbwf7Ty0tbwPJJbm3gb9FRW0wk0kMRoyqCNeK9xMB9n4a0pfWktu3eiWnbB2dzeLHrcO/exec',{
             method:"POST",
             body:new FormData(forma.value),
           }).then((response)=>{
