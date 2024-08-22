@@ -107,7 +107,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     async getRecipies() {
       this.loading = true;
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbwYNA8D-po1XiLlgRFE3G1TZPi5nl09hmVQARnr0TdENmAwiZhDHWT4KZzu1Pl1hVCqgA/exec"
+        "https://script.google.com/macros/s/AKfycbz_xGJL8mZi6Zt14wZe-d8mIBKaysXwNb7nr0WWSPb6Qh3blZL5KABXY5yRlMM6xDVE/exec"
       );
       const data = await res.json();
       this.recipies = data;

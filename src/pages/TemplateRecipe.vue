@@ -80,7 +80,7 @@ export default {
         formData.set("Category", "Супы")
       }
       formData.set("Time", this.time)
-      fetch('https://script.google.com/macros/s/AKfycbwYNA8D-po1XiLlgRFE3G1TZPi5nl09hmVQARnr0TdENmAwiZhDHWT4KZzu1Pl1hVCqgA/exec', {
+      fetch('https://script.google.com/macros/s/AKfycby1U7Ofn_4MfceT2cxg6mIkBscGe-b3Xk6Mm4l5wywVSe8SCYGOJxZ6ETeiewk_Ds8tzw/exec', {
         method: "POST",
         body: formData
       }).then((response) => {

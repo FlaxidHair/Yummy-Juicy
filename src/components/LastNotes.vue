@@ -36,47 +36,6 @@
                 </v-card>
             </template>
         </v-dialog>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- <v-dialog max-width="500">
-                <template v-slot:activator="{ props: activatorProps }">
-            <div class="d-flex ga-5 justify-center">
-            <div class="d-flex ga-10 mb-7" @click="() => { store.selectNote = note }" v-for="note in store.getterNotes" :key="note">
-                <v-hover v-slot="{ isHovering, props }" open-delay="50">
-                    <RouterLink class="w-100 cursor-pointer" to="">
-                        <v-card class="d-flex flex-column align-center flex-wrap" min-height="200px" max-height="500" :class="isHovering, props" v-bind="props" :elevation="isHovering ? 8 : 2">
-                            <v-card-title>{{ note.Title }}</v-card-title>
-                            <v-card-text>{{note.Subtitle}}</v-card-text>
-                        </v-card>
-                    </RouterLink>
-                </v-hover>
-            </div>
-        </div>
-    </template>
-    
-    <template v-slot:default="{ isActive }">
-                <v-card class="d-flex flex-column">
-                  <v-card-title>
-                    {{ store.selectNote.Title }}
-                  </v-card-title>
-                  <v-card-text>
-                    {{ store.selectNote.Subtitle }}
-                  </v-card-text>
-                </v-card>
-            </template>
-        </v-dialog> -->
         </v-container>
     </div>
 </template>
