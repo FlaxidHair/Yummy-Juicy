@@ -13,7 +13,6 @@
     </form>    
     </div>
     <div class="d-flex flex-column align-center">
-            <h2 class="mb-10 align-self-center">Последние заметки</h2>
             <v-dialog max-width="800">
             <template v-slot:activator="{ props: activatorProps }">
                 <div class="d-flex ga-5 justify-center flex-wrap">
