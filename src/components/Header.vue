@@ -20,39 +20,37 @@
 <div class="ml-auto mr-5" >
       <v-text-field
         width="20vw"
-        :loading="loading"
+        :loading="store.loadingSearch"
         append-inner-icon="mdi-magnify"
         density="compact"
         label="Найти рецепт"
         variant="solo"
         hide-details
+        v-model="store.inputText"
         single-line
-        @click:append-inner="onClick"
+        @click:append-inner="store.onClickSearch"
       ></v-text-field>
+      <v-card v-if="store.searchShow" class="mt-1 position-fixed" width="350px" height="400px">
+        asd
+      </v-card>
 </div>
 </v-app-bar>
 </div>
 
 </template>
 
-<script>
- export default {
-    data: () => ({
-      loaded: false,
-      loading: false,
-    }),
-
-    methods: {
-      onClick() {
-        this.loading = true
-
-        setTimeout(() => {
-          this.loading = false
-          this.loaded = true
-        }, 1500)
-      },
-    },
-  }
+<script setup>
+    import { watch } from 'vue';
+      import {useStoreRecipies} from '../stores/storeRecipies'
+      const store = useStoreRecipies();
+      watch(()=>store.inputText,(newVal)=>{
+        if(newVal!=""){
+          store.searchShow=true
+        }else{
+          store.searchShow=false
+        }
+      })
+     
 </script>
 
 <style >

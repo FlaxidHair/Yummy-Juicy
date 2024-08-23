@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import { createApp, markRaw } from "vue";
 import { createPinia } from "pinia";
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
@@ -9,7 +9,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import App from "./App.vue";
 import "./assets/main.css";
 import "@mdi/font/css/materialdesignicons.css";
-
 const vuetify = createVuetify({
   components,
   directives,
@@ -58,8 +57,13 @@ const router = createRouter({
     },
   ],
 });
+const pinia = createPinia();
+pinia.use(({ store }) => {
+  store.router = markRaw(router);
+});
 const app = createApp(App);
 app.use(vuetify);
 app.use(createPinia());
 app.use(router);
+app.use(pinia);
 app.mount("#app");

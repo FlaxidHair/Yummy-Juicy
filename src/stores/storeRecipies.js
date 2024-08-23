@@ -18,7 +18,11 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       garnish: [],
       dessert: [],
     },
+    loaded: false,
     loading: false,
+    searchShow: false,
+    inputText: "",
+    loadingSearch: false,
     randomState: 0,
     startShow: 0,
     amenities: [0],
@@ -62,7 +66,6 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       return this.category;
     },
     GetterRandom() {
-      let hook = this.randomCount;
       return {
         meat: this.randomDish(0, this.getterCategory.meat.length - 1),
         garnish: this.randomDish(0, this.getterCategory.garnish.length - 1),
@@ -89,6 +92,19 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     },
   },
   actions: {
+    onClickSearch() {
+      if (this.inputText == "") {
+        this.loadingSearch = false;
+      } else {
+        this.loadingSearch = true;
+        setTimeout(() => {
+          this.loadingSearch = false;
+          this.loaded = true;
+          this.inputText = "";
+          this.router.push("/Recipies");
+        }, 1300);
+      }
+    },
     randomDish(min, max) {
       let rand = min + Math.random() * (max + 1 - min);
       return Math.floor(rand);
@@ -123,7 +139,6 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       const res = await fetch(
         "https://script.google.com/macros/s/AKfycbwf7Ty0tbwPJJbm3gb9FRW0wk0kMRoyqCNeK9xMB9n4a0pfWktu3eiWnbB2dzeLHrcO/exec"
       );
-      console.log(res);
       const data = await res.json();
       this.notes = data;
       this.lastNotes = data.notes.slice(-4).reverse();
