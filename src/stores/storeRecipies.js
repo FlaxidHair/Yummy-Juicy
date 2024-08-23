@@ -8,7 +8,6 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     lastNotes: [],
     randomCount: 0,
     dialog: false,
-    dialog2: false,
     selectRecipe: null,
     selectNote: null,
     category: {
