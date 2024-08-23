@@ -66,6 +66,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       return this.category;
     },
     GetterRandom() {
+      let hook = this.randomCount;
       return {
         meat: this.randomDish(0, this.getterCategory.meat.length - 1),
         garnish: this.randomDish(0, this.getterCategory.garnish.length - 1),
