@@ -26,7 +26,7 @@
           <v-responsive class="pa-2">
             <form ref="formTime">
               <v-text-field name="Time" v-model="time" variant="outlined" class="align-self-center shrink ml-auto mr-10"
-                width="110px" type="time" label="Время готовки"></v-text-field>
+                width="100px" type="time" label="Время"></v-text-field>
             </form>
           </v-responsive>
 

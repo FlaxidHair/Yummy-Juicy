@@ -115,8 +115,11 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       this.randomCount++;
     },
     getTime(time) {
-      const hours = new Date(time).getHours();
-      const minutes = new Date(time).getMinutes();
+      let hours = new Date(time).getHours() + 1;
+      const minutes = new Date(time).getMinutes() - 19;
+      if (hours == 24) {
+        hours = 0;
+      }
       if (hours == 0) {
         return minutes + " м.";
       } else if (hours > 0) {
@@ -135,6 +138,9 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       this.recipies = data;
       this.lastRecipies = data.recipies.slice(-4).reverse();
       this.loading = false;
+      const date = new Date(this.getterRecipe.recipies[1].Time);
+      console.log(date.getMinutes() - date.getTimezoneOffset());
+      console.log(date.getTimezoneOffset());
     },
     async getNotes() {
       const res = await fetch(
