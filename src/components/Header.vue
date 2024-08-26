@@ -31,7 +31,7 @@
         @click:append-inner="store.onClickSearch"
       ></v-text-field>
       <v-expand-transition>
-      <v-card  v-if="store.searchShow" class="mt-1 position-fixed" width="350px" height="400px">
+      <v-card v-if="store.searchShow" class="mt-1 position-fixed" width="350px" height="400px">
         asd
       </v-card>
     </v-expand-transition>

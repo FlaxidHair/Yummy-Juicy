@@ -15,7 +15,7 @@
                                         <v-card-subtitle class="w-50 pa-1 align-self-center">{{ recipe.Ingridients
                                             }}</v-card-subtitle>
                                         <div class="border-thin mr-1 pa-1 align-self-center">
-                                            {{ store.getTime(recipe.Time) }}</div>
+                                            {{ recipe.Time }}</div>
                                     </div>
                                     <v-card-text class="h-25 text-caption">{{ recipe.Description }}</v-card-text>
                                     <img :src="recipe.Image" class="w-100 h-50" alt="Тут могло быть изображения еды">
@@ -53,7 +53,7 @@
                             <h4 class="align-self-center mr-1">Время:</h4>
                             <v-card-subtitle class="ma-0 pa-0 align-self-center"
                             >
-                            {{ store.getTime(store.selectRecipe.Time)
+                            {{ store.selectRecipe.Time
                             }}</v-card-subtitle>
                         </div>
                         

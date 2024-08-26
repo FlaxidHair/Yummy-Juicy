@@ -25,11 +25,20 @@
 
           <v-responsive class="pa-2">
             <form ref="formTime">
-              <v-text-field name="Time" v-model="time" variant="outlined" class="align-self-center shrink ml-auto mr-10"
-                width="100px" type="time" label="Время"></v-text-field>
+              <!-- <v-text-field name="Time" v-model="time" variant="outlined" class="align-self-center shrink ml-auto mr-10"
+                width="100px" type="time" label="Время"></v-text-field> -->
+
+                <v-autocomplete
+  label="Время"
+  :items="itemsTime"
+  class="align-self-center shrink ml-auto mr-10"
+  variant="outlined"
+  v-model="time"
+  width="150px"
+  name="Time"
+></v-autocomplete>
             </form>
           </v-responsive>
-
         </div>
         <form ref="form">
           <div class="px-10 d-flex flex-column">
@@ -62,6 +71,31 @@ export default {
     amenities: [],
     ingridients: [],
     time: "",
+    itemsTime: [
+      "0:05м",
+      "0:10м.",
+      "0:15м.",
+      "0:20м.",
+      "0:25м.",
+      "0:30м.",
+      "0:35м.",
+      "0:40м.",
+      "0:45м.",
+      "0:50м.",
+      "0:55м.",
+      "2:05м",
+      "1:10м.",
+      "1:15м.",
+      "1:20м.",
+      "1:25м.",
+      "1:30м.",
+      "1:35м.",
+      "1:40м.",
+      "1:45м.",
+      "1:50м.",
+      "1:55м.",
+      ">2:00ч.",
+    ],
   }),
   methods: {
     postRecipe() {
