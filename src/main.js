@@ -31,7 +31,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: "/",
+      path: "/Recipe-Cite/",
       name: "main",
       component: () => import("./pages/MainPage.vue"),
     },
