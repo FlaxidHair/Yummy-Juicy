@@ -5,7 +5,7 @@ import { createVuetify } from "vuetify";
 import colors from "vuetify/util/colors";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import App from "./App.vue";
 import "./assets/main.css";
 import "@mdi/font/css/materialdesignicons.css";
@@ -28,10 +28,10 @@ const vuetify = createVuetify({
   },
 });
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     {
-      path: "/Recipe-Cite/",
+      path: "/",
       name: "main",
       component: () => import("./pages/MainPage.vue"),
     },

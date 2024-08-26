@@ -3,7 +3,7 @@
   <v-app-bar :elevation="3" rounded class="bg-red-accent-1 mt-3 position-relative w-100 d-flex justify-center">
   <div class="ml-8">
     <v-app-bar-title class="d-flex ga-3 text-no-wrap">
-        <RouterLink class="text-red-lighten-5" to="/Recipe-Cite/">
+        <RouterLink class="text-red-lighten-5" to="/">
             Yummy&Juicy
         </RouterLink>
 
@@ -30,9 +30,11 @@
         single-line
         @click:append-inner="store.onClickSearch"
       ></v-text-field>
-      <v-card v-if="store.searchShow" class="mt-1 position-fixed" width="350px" height="400px">
+      <v-expand-transition>
+      <v-card  v-if="store.searchShow" class="mt-1 position-fixed" width="350px" height="400px">
         asd
       </v-card>
+    </v-expand-transition>
 </div>
 </v-app-bar>
 </div>
