@@ -18,6 +18,8 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       garnish: [],
       dessert: [],
     },
+    dialogRecipe: true,
+    showingItems: [],
     loaded: false,
     loading: false,
     searchShow: false,
@@ -26,8 +28,17 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     randomState: 0,
     startShow: 0,
     amenities: [0],
+    isActive: false,
   }),
   getters: {
+    getterShow() {
+      if (this.inputText != "") {
+        return this.recipies.recipies.filter((item) => {
+          return item.Name.includes(this.inputText);
+        });
+      }
+      return this.recipies.recipies;
+    },
     getterRecipe() {
       return this.recipies;
     },
@@ -93,6 +104,28 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     },
   },
   actions: {
+    showSearchRequest() {
+      this.router.push("/Recipies");
+      if (this.selectRecipe.Category == "Мясо") {
+        this.amenities = [1];
+      }
+      if (this.selectRecipe.Category == "Рыба") {
+        this.amenities = [2];
+      }
+      if (this.selectRecipe.Category == "Салаты") {
+        this.amenities = [3];
+      }
+      if (this.selectRecipe.Category == "Супы") {
+        this.amenities = [4];
+      }
+      if (this.selectRecipe.Category == "Десерт") {
+        this.amenities = [5];
+      }
+      if (this.selectRecipe.Category == "Гарнир") {
+        this.amenities = [6];
+      }
+      this.isActive = true;
+    },
     onClickSearch() {
       if (this.inputText == "") {
         this.loadingSearch = false;
@@ -119,7 +152,6 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       const res = await fetch(
         "https://script.google.com/macros/s/AKfycbw4BJY0TtaC1QaUnZtxhHXusYcNV-AL_pQn2iZKbInP5serwWDpfJm_S9Cn_R6x4S8r3g/exec"
       );
-
       const data = await res.json();
       this.recipies = data;
       this.lastRecipies = data.recipies.slice(-4).reverse();

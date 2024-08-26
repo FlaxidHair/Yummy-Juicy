@@ -25,6 +25,7 @@
         <div v-show="store.startShow==6">
             <FilterGarnish></FilterGarnish>
         </div>
+        
     </div>
 </template>
 
