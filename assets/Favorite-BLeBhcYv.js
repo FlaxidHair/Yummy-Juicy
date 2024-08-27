@@ -1,0 +1,1 @@
+import{u as e,c as t,o as s,b as o}from"./index-DAFVyljz.js";const c={class:"main d-flex mt-15 align-center flex-column"},a=o("p",null,"В разработке",-1),n=[a],m={__name:"Favorite",setup(_){return e(),(r,i)=>(s(),t("div",c,n))}};export{m as default};
