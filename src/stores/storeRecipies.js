@@ -29,6 +29,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     startShow: 0,
     amenities: [0],
     isActive: false,
+    showSearchResult: false,
   }),
   getters: {
     getterShow() {
@@ -104,8 +105,18 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     },
   },
   actions: {
+    onBlur() {
+      this.searchShow = false;
+    },
+    onFocus() {
+      if (this.inputText == "") {
+        return;
+      }
+      this.searchShow = true;
+    },
     showSearchRequest() {
       this.router.push("/Recipies");
+      this.showSearchResult = true;
       if (this.selectRecipe.Category == "Мясо") {
         this.amenities = [1];
       }
@@ -134,7 +145,36 @@ export const useStoreRecipies = defineStore("storeRecipies", {
         setTimeout(() => {
           this.loadingSearch = false;
           this.loaded = true;
-          this.inputText = "";
+          // this.inputText = "";
+          if (this.inputText == "") {
+            this.startShow = 0;
+            this.amenities = [0];
+          }
+          if (this.getterShow[0].Category == "Мясо") {
+            this.startShow = 1;
+            this.amenities = [1];
+          }
+          if (this.getterShow[0].Category == "Рыба") {
+            this.startShow = 2;
+            this.amenities = [2];
+          }
+          if (this.getterShow[0].Category == "Салаты") {
+            this.startShow = 3;
+            this.amenities = [3];
+          }
+          if (this.getterShow[0].Category == "Супы") {
+            this.startShow = 4;
+            this.amenities = [4];
+          }
+          if (this.getterShow[0].Category == "Десерт") {
+            this.startShow = 5;
+            this.amenities = [5];
+          }
+          if (this.getterShow[0].Category == "Гарнир") {
+            this.startShow = 6;
+            this.amenities = [6];
+          }
+          this.showSearchResult = true;
           this.router.push("/Recipies");
         }, 1300);
       }

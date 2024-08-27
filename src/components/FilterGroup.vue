@@ -11,49 +11,49 @@
           text="Все"
           variant="outlined"
           filter
-          @click="store.startShow=0"
+          @click="changeAmenities(0)"
         ></v-chip>
 
         <v-chip
           text="Мясо"
           variant="outlined"
           filter
-          @click="store.startShow=1"
+          @click="changeAmenities(1)"
         ></v-chip>
 
         <v-chip
           text="Рыба"
           variant="outlined"
           filter
-          @click="store.startShow=2"
+          @click="changeAmenities(2)"
         ></v-chip>
 
         <v-chip
           text="Салаты"
           variant="outlined"
           filter
-          @click="store.startShow=3"
+          @click="changeAmenities(3)"
         ></v-chip>
 
         <v-chip
           text="Супы"
           variant="outlined"
           filter
-          @click="store.startShow=4"
+          @click="changeAmenities(4)"
         ></v-chip>
 
         <v-chip
           text="Десерт"
           variant="outlined"
           filter
-          @click="store.startShow=5"
+          @click="changeAmenities(5)"
         ></v-chip>
 
         <v-chip
           text="Гарнир"
           variant="outlined"
           filter
-          @click="store.startShow=6"
+          @click="changeAmenities(6)"
         ></v-chip>
       </v-chip-group>
     </v-card-text>
@@ -63,5 +63,10 @@
 <script setup>
 import {useStoreRecipies} from '../stores/storeRecipies'
 const store = useStoreRecipies();
+
+function changeAmenities(item){
+  store.startShow = item
+  store.showSearchResult=false
+}
 </script>
 

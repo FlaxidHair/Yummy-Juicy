@@ -29,6 +29,8 @@
         v-model="store.inputText"
         single-line
         @click:append-inner="store.onClickSearch"
+        @focus="store.onFocus"
+        @blur="store.onBlur"
       ></v-text-field>
       <v-expand-transition>
       <v-card ref="textSearch" v-show="store.searchShow" class="mt-1 position-fixed overflow-auto" width="20vw" height="50vh">
