@@ -25,18 +25,8 @@
 
           <v-responsive class="pa-2">
             <form ref="formTime">
-              <!-- <v-text-field name="Time" v-model="time" variant="outlined" class="align-self-center shrink ml-auto mr-10"
-                width="100px" type="time" label="Время"></v-text-field> -->
-
-                <v-autocomplete
-  label="Время"
-  :items="itemsTime"
-  class="align-self-center shrink ml-auto mr-10"
-  variant="outlined"
-  v-model="time"
-  width="150px"
-  name="Time"
-></v-autocomplete>
+              <v-autocomplete label="Время" :items="itemsTime" class="align-self-center shrink ml-auto mr-10"
+                variant="outlined" v-model="time" width="150px" name="Time"></v-autocomplete>
             </form>
           </v-responsive>
         </div>

@@ -6,10 +6,8 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     notes: [],
     lastRecipies: [],
     lastNotes: [],
-    randomCount: 0,
-    dialog: false,
-    selectRecipe: null,
-    selectNote: null,
+    showingItems: [],
+    amenities: [0],
     category: {
       meat: [],
       fish: [],
@@ -19,17 +17,19 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       dessert: [],
     },
     dialogRecipe: true,
-    showingItems: [],
     loaded: false,
     loading: false,
     searchShow: false,
-    inputText: "",
-    loadingSearch: false,
-    randomState: 0,
-    startShow: 0,
-    amenities: [0],
     isActive: false,
     showSearchResult: false,
+    loadingSearch: false,
+    dialog: false,
+    selectRecipe: null,
+    selectNote: null,
+    randomCount: 0,
+    randomState: 0,
+    startShow: 0,
+    inputText: "",
   }),
   getters: {
     getterShow() {
@@ -145,7 +145,6 @@ export const useStoreRecipies = defineStore("storeRecipies", {
         setTimeout(() => {
           this.loadingSearch = false;
           this.loaded = true;
-          // this.inputText = "";
           if (this.inputText == "") {
             this.startShow = 0;
             this.amenities = [0];

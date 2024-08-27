@@ -1,6 +1,6 @@
 <template>
     <div class="main d-flex mt-15  align-center flex-column">
-     <p>123</p>
+     <p>В разработке</p>
     </div>
 </template>
 
