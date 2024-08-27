@@ -1,9 +1,9 @@
 <template>
   <v-app class="app">
     <Header></Header>
-    <RouterView v-show="!store.loading" />
-    <v-progress-circular class="main ml-auto mr-auto" indeterminate :size="40" color=""
+    <v-progress-circular class="main ml-auto mt-auto  mr-auto" indeterminate :size="40" color=""
       v-show="store.loading"></v-progress-circular>
+    <RouterView v-show="!store.loading" />
     <Footer></Footer>
   </v-app>
 </template>

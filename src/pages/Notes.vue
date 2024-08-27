@@ -1,8 +1,7 @@
 <template>
-    <div class="main d-flex flex-column align-center">
+    <div class="main d-flex flex-column align-center" v-if="!store.loading" >
         <h2 class="mt-10 mb-5">Добавить заметку</h2>
-        <v-container class="">
-
+        <v-container>
             <div class="w-50 mr-auto ml-auto border-thin mb-5">
                 <form ref="forma">
                     <div class="d-flex">

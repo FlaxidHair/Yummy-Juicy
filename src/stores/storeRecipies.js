@@ -29,6 +29,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     randomCount: 0,
     randomState: 0,
     startShow: 0,
+    refresh: 0,
     inputText: "",
   }),
   getters: {
@@ -36,6 +37,54 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       if (this.inputText != "") {
         return this.recipies.recipies.filter((item) => {
           return item.Name.includes(this.inputText);
+        });
+      }
+      return this.recipies.recipies;
+    },
+    getterMeat() {
+      if (!this.loading) {
+        return this.recipies.recipies.filter((item) => {
+          return item.Category.includes("Мясо");
+        });
+      }
+      return this.recipies.recipies;
+    },
+    getterFish() {
+      if (!this.loading) {
+        return this.recipies.recipies.filter((item) => {
+          return item.Category.includes("Рыба");
+        });
+      }
+      return this.recipies.recipies;
+    },
+    getterSalad() {
+      if (!this.loading) {
+        return this.recipies.recipies.filter((item) => {
+          return item.Category.includes("Салаты");
+        });
+      }
+      return this.recipies.recipies;
+    },
+    getterSoup() {
+      if (!this.loading) {
+        return this.recipies.recipies.filter((item) => {
+          return item.Category.includes("Супы");
+        });
+      }
+      return this.recipies.recipies;
+    },
+    getterDessert() {
+      if (!this.loading) {
+        return this.recipies.recipies.filter((item) => {
+          return item.Category.includes("Десерт");
+        });
+      }
+      return this.recipies.recipies;
+    },
+    getterGarnish() {
+      if (!this.loading) {
+        return this.recipies.recipies.filter((item) => {
+          return item.Category.includes("Гарнир");
         });
       }
       return this.recipies.recipies;
@@ -52,55 +101,30 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     getterNotes() {
       return this.notes.notes;
     },
-    getterCategory() {
-      if (this.loading == false) {
-        this.recipies.recipies.forEach((el) => {
-          if (el.Category == "Мясо") {
-            this.category.meat.push(el);
-          }
-          if (el.Category == "Рыба") {
-            this.category.fish.push(el);
-          }
-          if (el.Category == "Супы") {
-            this.category.soup.push(el);
-          }
-          if (el.Category == "Гарнир") {
-            this.category.garnish.push(el);
-          }
-          if (el.Category == "Десерт") {
-            this.category.dessert.push(el);
-          }
-          if (el.Category == "Салаты") {
-            this.category.salad.push(el);
-          }
-        });
-      }
-      return this.category;
-    },
     GetterRandom() {
       let hook = this.randomCount;
       return {
-        meat: this.randomDish(0, this.getterCategory.meat.length - 1),
-        garnish: this.randomDish(0, this.getterCategory.garnish.length - 1),
-        salad: this.randomDish(0, this.getterCategory.salad.length - 1),
+        meat: this.randomDish(0, this.getterMeat.length - 1),
+        garnish: this.randomDish(0, this.getterGarnish.length - 1),
+        salad: this.randomDish(0, this.getterSalad.length - 1),
       };
     },
     getMeatName() {
       return {
-        name: this.getterCategory.meat[this.GetterRandom.meat].Name,
-        image: this.getterCategory.meat[this.GetterRandom.meat].Image,
+        name: this.getterMeat[this.GetterRandom.meat].Name,
+        image: this.getterMeat[this.GetterRandom.meat].Image,
       };
     },
     getGarnishName() {
       return {
-        name: this.getterCategory.garnish[this.GetterRandom.garnish].Name,
-        image: this.getterCategory.garnish[this.GetterRandom.garnish].Image,
+        name: this.getterGarnish[this.GetterRandom.garnish].Name,
+        image: this.getterGarnish[this.GetterRandom.garnish].Image,
       };
     },
     getSaladName() {
       return {
-        name: this.getterCategory.salad[this.GetterRandom.salad].Name,
-        image: this.getterCategory.salad[this.GetterRandom.salad].Image,
+        name: this.getterSalad[this.GetterRandom.salad].Name,
+        image: this.getterSalad[this.GetterRandom.salad].Image,
       };
     },
   },
@@ -195,6 +219,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       this.recipies = data;
       this.lastRecipies = data.recipies.slice(-4).reverse();
       this.loading = false;
+      this.refresh++;
     },
     async getNotes() {
       const res = await fetch(

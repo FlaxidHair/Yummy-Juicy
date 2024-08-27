@@ -2,7 +2,7 @@
   <v-dialog max-width="800">
     <template v-slot:activator="{ props: activatorProps }">
       <div class="d-flex ga-5 flex-wrap justify-center">
-        <div v-for="recipe in store.getterCategory.salad" :key="recipe" class="d-flex w-25 ga-5 mb-7">
+        <div v-for="recipe in store.getterSalad" :key="recipe" class="d-flex w-25 ga-5 mb-7">
           <v-hover v-slot="{ isHovering, props }" open-delay="50">
             <div @click="() => {
                 store.selectRecipe = recipe;

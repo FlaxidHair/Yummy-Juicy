@@ -1,5 +1,5 @@
 <template>
-    <main class="main">
+    <main class="main" >
         <RandomDish></RandomDish>
         <LastRecipe></LastRecipe>
         <LastNotes></LastNotes>

@@ -1,9 +1,10 @@
 <template>
     <div class="main w-100 d-flex flex-column align-center mt-5 mb-5">
-        <h2 class="mb-5 mt-5">
+        <h2 class="mb-5 mt-5" v-show="!store.loading">
             Рецепты
         </h2>
-        <FilterGroup></FilterGroup>
+        <FilterGroup v-show="!store.loading"></FilterGroup>
+        <div v-if="!store.loading">
         <div v-show="!store.showSearchResult">
             <div v-show="store.startShow == 0">
                 <FilterStart></FilterStart>
@@ -27,9 +28,11 @@
                 <FilterGarnish></FilterGarnish>
             </div>
         </div>
+
         <div v-show="store.showSearchResult">
             <FilterSearch></FilterSearch>
         </div>
+    </div>
     </div>
 </template>
 

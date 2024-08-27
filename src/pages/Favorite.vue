@@ -1,5 +1,5 @@
 <template>
-    <div class="main d-flex mt-15  align-center flex-column">
+    <div class="main d-flex mt-15  align-center flex-column" v-show="!store.loading">
      <p>В разработке</p>
     </div>
 </template>

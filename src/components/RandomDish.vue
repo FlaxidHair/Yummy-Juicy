@@ -11,8 +11,8 @@
                 <img :src="store.getMeatName.image" alt="Image of dish" class="w-100 h-100">
             </v-card>
             <v-card height="350" :elevation="4" class="w-33 d-flex flex-column align-center">
-                <v-card-subtitle class="mt-2">{{ store.getGarnishName.name }}</v-card-subtitle>
-                <v-card-title>Макароны</v-card-title>
+                <v-card-subtitle class="mt-2">Макароны</v-card-subtitle>
+                <v-card-title>{{ store.getGarnishName.name }}</v-card-title>
                 <img :src="store.getGarnishName.image" alt="Image of dish" class="w-100 h-100">
             </v-card>
             <v-card height="350" :elevation="4" class="w-33 d-flex flex-column align-center">
