@@ -22,31 +22,32 @@
               </v-chip-group>
             </v-card-text>
           </v-card>
-
+          <v-form ref="form">
           <v-responsive class="pa-2">
-            <form ref="formTime">
-              <v-autocomplete label="Время" :items="itemsTime" class="align-self-center shrink ml-auto mr-10"
-                variant="outlined" v-model="time" width="150px" name="Time"></v-autocomplete>
-            </form>
-          </v-responsive>
+              <v-autocomplete v-model="this.time"  label="Время" :items="itemsTime" class=" auto-select-first align-self-center shrink ml-auto mr-10"
+                variant="outlined" width="150px" name="Time"></v-autocomplete>
+              </v-responsive>
+            </v-form>
         </div>
-        <form ref="form">
+        <v-form ref="vform" v-model="this.valid">
+        <form ref="form" @submit.prevent>
           <div class="px-10 d-flex flex-column">
-            <v-text-field required name="Name" variant="outlined" prepend-inner-icon="mdi-tag-outline"
+            <v-text-field required :rules="[rules.required]" name="Name" variant="outlined" v-model="this.inputName" prepend-inner-icon="mdi-tag-outline"
               label="Введите название рецепта"></v-text-field>
-            <v-text-field required name="Ingridients" variant="outlined" multiple label="Введите ингредиенты"
+            <v-text-field required :rules="[rules.required]" name="Ingridients" v-model="this.inputIngridients" variant="outlined" multiple label="Введите ингредиенты"
               prepend-inner-icon="mdi-nutrition"></v-text-field>
-            <v-textarea required name="Description" label="Описание рецепта" prepend-inner-icon="mdi-pot-steam"
+            <v-textarea required :rules="[rules.required]" name="Description" label="Описание рецепта" v-model="this.inputDescription" prepend-inner-icon="mdi-pot-steam"
               variant="outlined"></v-textarea>
-            <v-text-field required name="Image" variant="outlined" prepend-inner-icon="mdi-mushroom"
+            <v-text-field required :rules="[rules.required]" name="Image" variant="outlined" v-model="this.inputImage" prepend-inner-icon="mdi-mushroom"
               label="Введите URL изображения"></v-text-field>
             <div class="d-flex">
               <v-switch color="blue" label="Добавить в любимые рецепты" v-model="this.chooseFavorite" class="d-flex text-blue" inset></v-switch>
-              <v-btn @click="postRecipe()" type="button" class="w-25 my-5 ml-auto bg-red-accent-1 text-white"
+              <v-btn @click="postRecipe()" type="submit" class="w-25 my-5 ml-auto bg-red-accent-1 text-white"
                 height="40px">Добавить</v-btn>
             </div>
           </div>
         </form>
+      </v-form>
       </v-container>
     </div>
   </div>
@@ -58,11 +59,20 @@ const store = useStoreRecipies();
 
 export default {
   data: () => ({
+    valid:false,
+    inputName:"",
+    inputIngridients:"",
+    inputDescription:"",
+    inputImage:"",
     amenities: [],
     ingridients: [],
     time: "",
+    rules: {
+        required: value => !!value || 'Необходимо заполнить поле!',
+      },
     chooseFavorite:false,
     itemsTime: [
+      "0:00м",
       "0:05м",
       "0:10м.",
       "0:15м.",
@@ -90,8 +100,16 @@ export default {
       ">2:00ч.",
     ],
   }),
+  mounted(){
+    this.time = this.itemsTime[0]
+  },
   methods: {
     postRecipe() {
+      this.rules.required()
+      if(this.amenities.length == 0) {
+        alert('Выберите категорию!')
+        return
+      }
       const formData = new FormData(this.$refs.form)
       if (this.amenities == 0) {
         formData.set("Category", "Мясо")
@@ -108,15 +126,21 @@ export default {
       }
       formData.set("Favorite",this.chooseFavorite)
       formData.set("Time", this.time)
-      fetch('https://script.google.com/macros/s/AKfycbw4BJY0TtaC1QaUnZtxhHXusYcNV-AL_pQn2iZKbInP5serwWDpfJm_S9Cn_R6x4S8r3g/exec', {
+      if(this.valid) {
+        fetch('https://script.google.com/macros/s/AKfycbw4BJY0TtaC1QaUnZtxhHXusYcNV-AL_pQn2iZKbInP5serwWDpfJm_S9Cn_R6x4S8r3g/exec', {
         method: "POST",
         body: formData
       }).then((response) => {
         if (response.status == 200) {
-          store.getRecipies()
+          this.$refs.vform.reset(); 
+          store.getRecipiesNOLOAD()
+          this.amenities = []
+          this.itemsTime
           alert("Рецепт добавлен")
         }
       })
+      }
+     
     },
   }
 }
