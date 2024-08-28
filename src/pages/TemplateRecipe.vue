@@ -41,7 +41,7 @@
             <v-text-field required name="Image" variant="outlined" prepend-inner-icon="mdi-mushroom"
               label="Введите URL изображения"></v-text-field>
             <div class="d-flex">
-              <v-switch color="blue" label="Добавить в любимые рецепты" class="d-flex text-blue" inset></v-switch>
+              <v-switch color="blue" label="Добавить в любимые рецепты" v-model="this.chooseFavorite" class="d-flex text-blue" inset></v-switch>
               <v-btn @click="postRecipe()" type="button" class="w-25 my-5 ml-auto bg-red-accent-1 text-white"
                 height="40px">Добавить</v-btn>
             </div>
@@ -61,6 +61,7 @@ export default {
     amenities: [],
     ingridients: [],
     time: "",
+    chooseFavorite:false,
     itemsTime: [
       "0:05м",
       "0:10м.",
@@ -105,6 +106,7 @@ export default {
       } else if (this.amenities == 5) {
         formData.set("Category", "Супы")
       }
+      formData.set("Favorite",this.chooseFavorite)
       formData.set("Time", this.time)
       fetch('https://script.google.com/macros/s/AKfycbw4BJY0TtaC1QaUnZtxhHXusYcNV-AL_pQn2iZKbInP5serwWDpfJm_S9Cn_R6x4S8r3g/exec', {
         method: "POST",

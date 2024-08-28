@@ -27,11 +27,12 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     dialog: false,
     selectRecipe: null,
     selectNote: null,
+    loadingRecipe: false,
+    addToFavorite: false,
     randomCount: 0,
     randomState: 0,
     startShow: 0,
     inputText: "",
-    loadingRecipe: false,
   }),
   getters: {
     getterShow() {
