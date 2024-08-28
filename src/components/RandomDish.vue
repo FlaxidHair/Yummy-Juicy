@@ -6,12 +6,12 @@
 
         <div v-if="store.randomState == 1" class="d-flex w-75 mb-7 ga-10">
             <v-card height="350" :elevation="4" class="w-33 d-flex flex-column align-center">
-                <v-card-subtitle class="mt-2">Мясное</v-card-subtitle>
+                <v-card-subtitle class="mt-2">Первое</v-card-subtitle>
                 <v-card-title>{{ store.getMeatName.name }}</v-card-title>
                 <img :src="store.getMeatName.image" alt="Image of dish" class="w-100 h-100">
             </v-card>
             <v-card height="350" :elevation="4" class="w-33 d-flex flex-column align-center">
-                <v-card-subtitle class="mt-2">Макароны</v-card-subtitle>
+                <v-card-subtitle class="mt-2">Второе</v-card-subtitle>
                 <v-card-title>{{ store.getGarnishName.name }}</v-card-title>
                 <img :src="store.getGarnishName.image" alt="Image of dish" class="w-100 h-100">
             </v-card>

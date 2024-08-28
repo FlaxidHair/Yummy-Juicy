@@ -16,6 +16,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       garnish: [],
       dessert: [],
     },
+    favoriteStatus: false,
     dialogRecipe: true,
     loaded: false,
     loading: false,
@@ -31,6 +32,9 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     startShow: 0,
     refresh: 0,
     inputText: "",
+    loadingRecipe: false,
+
+    stat: false,
   }),
   getters: {
     getterShow() {
@@ -90,6 +94,7 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       return this.recipies.recipies;
     },
     getterRecipe() {
+      let a = this.refresh;
       return this.recipies;
     },
     getterLastRecipies() {
@@ -127,6 +132,14 @@ export const useStoreRecipies = defineStore("storeRecipies", {
         image: this.getterSalad[this.GetterRandom.salad].Image,
       };
     },
+    getterFavoriteItems() {
+      if (!this.loading) {
+        return this.recipies.recipies.filter((item) => {
+          return item.Favorite == true;
+        });
+      }
+      return this.recipies.recipies;
+    },
   },
   actions: {
     onBlur() {
@@ -137,6 +150,20 @@ export const useStoreRecipies = defineStore("storeRecipies", {
         return;
       }
       this.searchShow = true;
+    },
+    showFavoriteStatus(item) {
+      if (item) {
+        return "mdi-star";
+      } else {
+        return "mdi-star-outline";
+      }
+    },
+    setFavoriteStatus() {
+      if (this.selectRecipe.Favorite == true) {
+        return "false";
+      } else {
+        return "true";
+      }
     },
     showSearchRequest() {
       this.router.push("/Recipies");
@@ -219,7 +246,16 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       this.recipies = data;
       this.lastRecipies = data.recipies.slice(-4).reverse();
       this.loading = false;
-      this.refresh++;
+    },
+    async getRecipiesNOLOAD() {
+      this.loadingRecipe = true;
+      const res = await fetch(
+        "https://script.google.com/macros/s/AKfycbw4BJY0TtaC1QaUnZtxhHXusYcNV-AL_pQn2iZKbInP5serwWDpfJm_S9Cn_R6x4S8r3g/exec"
+      );
+      const data = await res.json();
+      this.recipies = data;
+      this.lastRecipies = data.recipies.slice(-4).reverse();
+      this.loadingRecipe = false;
     },
     async getNotes() {
       const res = await fetch(
@@ -249,6 +285,18 @@ export const useStoreRecipies = defineStore("storeRecipies", {
           alert("Рецепт удален");
           this.dialog = false;
         }
+      });
+    },
+    async patchFavoriteStatus() {
+      const res = await fetch(
+        `https://script.google.com/macros/s/AKfycbwLaFelYDl-G7E1At08p7kg7MoE2BCW7CDg5UhjhH8mPc2PjhyLkmQ6QYkkOqnMTHAsWQ/exec?rowName=${
+          this.selectRecipe.Name
+        }&value=${this.setFavoriteStatus()}`,
+        {
+          method: "POST",
+        }
+      ).then(() => {
+        this.getRecipiesNOLOAD();
       });
     },
   },
