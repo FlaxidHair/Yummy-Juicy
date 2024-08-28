@@ -1,5 +1,7 @@
 <template>
-    <div class="main d-flex mt-15  align-center flex-column" v-show="!store.loading">
+    
+    <div class="main d-flex mt-10  align-center flex-column" v-show="!store.loading">
+        <h2 class="mt-0 mb-10">Избранные рецепты</h2>
         <v-dialog max-width="800">
         <template v-slot:activator="{ props: activatorProps }">
             <div class="d-flex ga-5 flex-wrap justify-center">

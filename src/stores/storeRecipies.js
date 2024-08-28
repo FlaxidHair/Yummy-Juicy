@@ -30,11 +30,8 @@ export const useStoreRecipies = defineStore("storeRecipies", {
     randomCount: 0,
     randomState: 0,
     startShow: 0,
-    refresh: 0,
     inputText: "",
     loadingRecipe: false,
-
-    stat: false,
   }),
   getters: {
     getterShow() {
