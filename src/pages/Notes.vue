@@ -3,16 +3,18 @@
         <h2 class="mt-10 mb-5">Добавить заметку</h2>
         <v-container>
             <div class="w-50 mr-auto ml-auto border-thin mb-5">
-                <form ref="forma">
+                <v-form ref="vform2" v-model="valid" >
+                <form ref="forma" @submit.prevent>
                     <div class="d-flex">
-                        <v-text-field name="Title" v-model="title" label="Введите заголовок" tile variant="solo"
+                        <v-text-field required :rules="[rules.required]" name="Title" v-model="title" label="Введите заголовок" tile variant="solo"
                             hide-details class=""></v-text-field>
-                        <v-btn @click="postNote()" class="elevation-2" width="120px" tile height="56px"
+                        <v-btn @click="postNote()" class="elevation-2" type="submit" width="120px" tile height="56px"
                             flat>Добавить</v-btn>
                     </div>
                     <v-textarea v-model="subTitle" name="Subtitle" label="Введите заметку" no-resize max-rows="10" tile
                         variant="filled" hide-details class=""></v-textarea>
                 </form>
+            </v-form>
             </div>
             <div class="d-flex flex-column align-center">
                 <v-dialog max-width="800">
@@ -76,17 +78,21 @@ const store = useStoreRecipies();
 const forma = ref(null)
 const title = ref("")
 const subTitle = ref("")
+const valid = ref(false)
+const vform2 = ref([])
+const rules = ref({required: value => !!value || 'Необходимо заполнить поле!',})
 function postNote() {
+    if(this.valid) {
     fetch('https://script.google.com/macros/s/AKfycbwf7Ty0tbwPJJbm3gb9FRW0wk0kMRoyqCNeK9xMB9n4a0pfWktu3eiWnbB2dzeLHrcO/exec', {
         method: "POST",
         body: new FormData(forma.value),
     }).then((response) => {
         if (response.status == 200) {
-            title.value = ""
-            subTitle.value = ""
+            this.vform2.reset()
             store.getNotes()
             alert("Заметка добавлена")
         }
     })
+}
 }
 </script>

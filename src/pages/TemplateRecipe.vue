@@ -105,7 +105,6 @@ export default {
   },
   methods: {
     postRecipe() {
-      this.rules.required()
       if(this.amenities.length == 0) {
         alert('Выберите категорию!')
         return
