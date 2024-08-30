@@ -58,11 +58,11 @@ export const useUser = defineStore("user", {
         })
         .catch((error) => {
           console.log(error.code);
-          if (error.code == "auth/email-already-in-use") {
-            this.message = "Пользователь уже существует!";
+          if (error.code == "auth/invalid-credential") {
+            this.message = "Неправильно введен Email или пароль!";
             this.dialog2 = true;
           } else if (error.code == "auth/invalid-email") {
-            this.message = "Неправильно введен Email!";
+            this.message = "Неправильно введен Email или пароль!";
             this.dialog2 = true;
           } else {
             this.message = "Ошибка регистрации!";

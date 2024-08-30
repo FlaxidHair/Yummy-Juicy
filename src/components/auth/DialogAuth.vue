@@ -1,5 +1,5 @@
 <template>
-        <div class="text-center">
+        <div class="text-center ml-5 mr-10">
             <v-btn
             color="surface-variant"
             text="Войти"
@@ -26,8 +26,6 @@
 <script setup>
 import { useStoreRecipies } from "../../stores/storeRecipies";
 import { useUser } from "../../stores/user";
-import Registration from "./Registration.vue";
-import Login from "./Login.vue";
 const store = useStoreRecipies();
 const userStore = useUser();
 </script>

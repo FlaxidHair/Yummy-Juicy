@@ -6,7 +6,6 @@
         <v-text-field variant="solo" v-model="userStore.userEmailRegistration" label="Email" prepend-inner-icon="mdi-account mr-2"></v-text-field>
         <v-text-field variant="solo" type-password v-model="userStore.userPassRegistration" label="Пароль" prepend-inner-icon="mdi-lock mr-2"></v-text-field>
     </v-responsive>
-
     <v-card-actions class="d-flex ga-5 justify-center">
         <v-btn class="bg-green" @click="userStore.register" text="Зарегистрироваться"></v-btn>
       <v-btn

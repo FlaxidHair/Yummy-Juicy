@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-center">
-    <v-app-bar :elevation="3" rounded class="bg-red-accent-1 mt-3 position-relative w-100 d-flex">
+    <v-app-bar :elevation="3" rounded class="bg-red-accent-1 mt-3 position-relative w-75 d-flex">
       <div class="ml-8">
         <v-app-bar-title class="d-flex ga-3 text-no-wrap">
           <RouterLink class="text-red-lighten-5" to="/">
@@ -8,7 +8,7 @@
           </RouterLink>
         </v-app-bar-title>
       </div>
-      <div class="d-flex ">
+      <div class="d-flex">
         <ul class="d-flex">
           <RouterLink to="/Favorite">
             <li><v-btn class="text-white">Избранное</v-btn></li>
@@ -27,8 +27,8 @@
 
       <SearchInput></SearchInput>
 
-      
       <Auth></Auth>
+      <v-bt icon=""></v-bt>
     </v-app-bar>
   </div>
 
