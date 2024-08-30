@@ -8,7 +8,7 @@
           </RouterLink>
         </v-app-bar-title>
       </div>
-      <div class="d-flex">
+      <div class="d-flex ml-auto">
         <ul class="d-flex">
           <RouterLink to="/Favorite">
             <li><v-btn class="text-white">Избранное</v-btn></li>
@@ -24,14 +24,11 @@
           </RouterLink>
         </ul>
       </div>
-
       <SearchInput></SearchInput>
-
-      <Auth></Auth>
-      <v-bt icon=""></v-bt>
+      <Auth v-if="!userStore.isLogin"></Auth>
+      <v-btn v-if="userStore.isLogin" @click="userStore.logout" icon="mdi-logout"></v-btn>
     </v-app-bar>
   </div>
-
 </template>
 
 <script setup>
@@ -40,6 +37,8 @@ import { useStoreRecipies } from '../stores/storeRecipies'
 import SearchInput from './SearchInput.vue';
 import Auth from './auth/DialogAuth.vue'
 const store = useStoreRecipies();
+import { useUser } from "../stores/user";
+const userStore = useUser();
 watch(() => store.inputText, (newVal) => {
   if (newVal != "") {
     store.searchShow = true;

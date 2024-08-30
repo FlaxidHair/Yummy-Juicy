@@ -3,8 +3,12 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 import Registration from "../components/auth/Registration.vue";
+import Login from "../components/auth/Login.vue";
+
 export const useUser = defineStore("user", {
   state: () => ({
     user: null,
@@ -15,7 +19,9 @@ export const useUser = defineStore("user", {
     userEmailLogin: "",
     userPassLogin: "",
     message: "",
+    isLogin: false,
     component: Registration,
+    auth: null,
   }),
   getters: {},
   actions: {
@@ -28,10 +34,11 @@ export const useUser = defineStore("user", {
         .then((data) => {
           this.message = "Регистрация завершена!";
           this.dialog2 = true;
+          this.component = Login;
         })
         .catch((error) => {
           console.log(error.code);
-          if (error.message == "auth/email-already-in-use") {
+          if (error.code == "auth/email-already-in-use") {
             this.message = "Пользователь уже существует!";
             this.dialog2 = true;
           } else if (error.code == "auth/invalid-email") {
@@ -55,6 +62,7 @@ export const useUser = defineStore("user", {
         .then((data) => {
           this.message = "Вы успешно вошли!";
           this.dialog2 = true;
+          this.isLogin = true;
         })
         .catch((error) => {
           console.log(error.code);
@@ -69,6 +77,11 @@ export const useUser = defineStore("user", {
             this.dialog2 = true;
           }
         });
+    },
+    logout() {
+      signOut(this.auth).then(() => {
+        routerKey.push("/");
+      });
     },
   },
 });

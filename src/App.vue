@@ -17,15 +17,9 @@ import { useStoreRecipies } from './stores/storeRecipies';
 import { onMounted } from 'vue'
 const store = useStoreRecipies();
 
-const a = async function() {
-  const data = await fetch('https://console.firebase.google.com/project/recipe-cie/database/recipe-cie-default-rtdb/data/~2F')
-  const meta = await data.json()
-  console.log(meta)
-} 
 onMounted(() => {
   store.getRecipies()
   store.getNotes()
-  a()
 
 })
 </script>
