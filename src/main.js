@@ -10,12 +10,8 @@ import App from "./App.vue";
 import "./assets/main.css";
 import "@mdi/font/css/materialdesignicons.css";
 
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyB8fNCFypsoi_Fyl17Mlqq-9ixpVt9Ktzs",
   authDomain: "recipe-cie.firebaseapp.com",
