@@ -94,7 +94,7 @@ function postNote() {
         body: new FormData(forma.value),
     }).then((response) => {
         if (response.status == 200) {
-            this.vform2.reset()
+            vform2.reset()
             store.getNotes()
             alert("Заметка добавлена")
         }
