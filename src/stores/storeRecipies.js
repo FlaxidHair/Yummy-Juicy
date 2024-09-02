@@ -42,54 +42,39 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       }
       return this.recipies.recipies;
     },
-    getterMeat() {
+    getterCategoryItems() {
       if (!this.loading) {
-        return this.recipies.recipies.filter((item) => {
-          return item.Category.includes("Мясо");
-        });
+        if (this.amenities == [6]) {
+          return this.recipies.recipies.filter((item) => {
+            return item.Category.includes("Гарнир");
+          });
+        } else if (this.amenities == [5]) {
+          return this.recipies.recipies.filter((item) => {
+            return item.Category.includes("Десерт");
+          });
+        } else if (this.amenities == [4]) {
+          return this.recipies.recipies.filter((item) => {
+            return item.Category.includes("Супы");
+          });
+        } else if (this.amenities == [3]) {
+          return this.recipies.recipies.filter((item) => {
+            return item.Category.includes("Салаты");
+          });
+        } else if (this.amenities == [2]) {
+          return this.recipies.recipies.filter((item) => {
+            return item.Category.includes("Рыба");
+          });
+        } else if (this.amenities == [1]) {
+          return this.recipies.recipies.filter((item) => {
+            return item.Category.includes("Мясо");
+          });
+        } else if (this.amenities == [0]) {
+          return this.recipies.recipies;
+        }
       }
       return this.recipies.recipies;
     },
-    getterFish() {
-      if (!this.loading) {
-        return this.recipies.recipies.filter((item) => {
-          return item.Category.includes("Рыба");
-        });
-      }
-      return this.recipies.recipies;
-    },
-    getterSalad() {
-      if (!this.loading) {
-        return this.recipies.recipies.filter((item) => {
-          return item.Category.includes("Салаты");
-        });
-      }
-      return this.recipies.recipies;
-    },
-    getterSoup() {
-      if (!this.loading) {
-        return this.recipies.recipies.filter((item) => {
-          return item.Category.includes("Супы");
-        });
-      }
-      return this.recipies.recipies;
-    },
-    getterDessert() {
-      if (!this.loading) {
-        return this.recipies.recipies.filter((item) => {
-          return item.Category.includes("Десерт");
-        });
-      }
-      return this.recipies.recipies;
-    },
-    getterGarnish() {
-      if (!this.loading) {
-        return this.recipies.recipies.filter((item) => {
-          return item.Category.includes("Гарнир");
-        });
-      }
-      return this.recipies.recipies;
-    },
+
     getterRecipe() {
       let a = this.refresh;
       return this.recipies;
@@ -110,6 +95,30 @@ export const useStoreRecipies = defineStore("storeRecipies", {
         garnish: this.randomDish(0, this.getterGarnish.length - 1),
         salad: this.randomDish(0, this.getterSalad.length - 1),
       };
+    },
+    getterMeat() {
+      if (!this.loading) {
+        return this.recipies.recipies.filter((item) => {
+          return item.Category.includes("Мясо");
+        });
+      }
+      return this.recipies.recipies;
+    },
+    getterSalad() {
+      if (!this.loading) {
+        return this.recipies.recipies.filter((item) => {
+          return item.Category.includes("Салаты");
+        });
+      }
+      return this.recipies.recipies;
+    },
+    getterGarnish() {
+      if (!this.loading) {
+        return this.recipies.recipies.filter((item) => {
+          return item.Category.includes("Гарнир");
+        });
+      }
+      return this.recipies.recipies;
     },
     getMeatName() {
       return {

@@ -6,10 +6,10 @@
         <FilterGroup v-show="!store.loading"></FilterGroup>
         <div v-if="!store.loading">
         <div v-show="!store.showSearchResult">
-            <div v-show="store.startShow == 0">
+            <!-- <div v-show="store.startShow == 0"> -->
                 <FilterStart></FilterStart>
-            </div>
-            <div v-show="store.startShow == 1">
+            <!-- </div> -->
+            <!-- <div v-show="store.startShow == 1">
                 <FilterMeat></FilterMeat>
             </div>
             <div v-show="store.startShow == 2">
@@ -26,7 +26,7 @@
             </div>
             <div v-show="store.startShow == 6">
                 <FilterGarnish></FilterGarnish>
-            </div>
+            </div> -->
         </div>
 
         <div v-show="store.showSearchResult">
@@ -40,12 +40,6 @@
 import { useStoreRecipies } from '../stores/storeRecipies'
 const store = useStoreRecipies();
 import FilterStart from '../components/FilterStart.vue';
-import FilterMeat from '../components/FilterMeat.vue';
-import FilterFish from '../components/FilterFish.vue';
-import FilterSalad from '../components/FilterSalad.vue';
-import FilterSoup from '../components/FilterSoup.vue';
-import FilterDessert from '../components/FilterDessert.vue';
-import FilterGarnish from '../components/FilterGarnish.vue';
 import FilterGroup from '../components/FilterGroup.vue';
 import FilterSearch from '@/components/FilterSearch.vue';
 import { watch } from 'vue';
