@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import { watch } from 'vue';
+import { watch,ref } from 'vue';
 import { useStoreRecipies } from '../stores/storeRecipies'
 import SearchInput from './SearchInput.vue';
 import Auth from './auth/DialogAuth.vue'
@@ -49,4 +49,3 @@ watch(() => store.inputText, (newVal) => {
 )     
 </script>
 
-<style></style>

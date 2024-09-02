@@ -4,7 +4,7 @@
     <v-card-title>Авторизация</v-card-title>
     <v-responsive width="400px">
         <v-text-field variant="solo" v-model="userStore.userEmailLogin" label="Email" prepend-inner-icon="mdi-account mr-2"></v-text-field>
-        <v-text-field variant="solo" type-password v-model="userStore.userPassLogin" label="Пароль" prepend-inner-icon="mdi-lock mr-2"></v-text-field>
+        <v-text-field variant="solo" type="password" v-model="userStore.userPassLogin" label="Пароль" prepend-inner-icon="mdi-lock mr-2"></v-text-field>
     </v-responsive>
     <v-card-actions class="d-flex ga-5 justify-center">
         <v-btn class="bg-green" @click="userStore.login" text="Войти"></v-btn>
@@ -24,7 +24,6 @@
 <script setup>
 import { useStoreRecipies } from "../../stores/storeRecipies";
 import { useUser } from "../../stores/user";
-import {ref} from 'vue'
 import Registration from './Registration.vue'
 const store = useStoreRecipies();
 const userStore = useUser();

@@ -20,8 +20,9 @@ export const useUser = defineStore("user", {
     userPassLogin: "",
     message: "",
     isLogin: false,
-    component: Registration,
+    component: Login,
     auth: null,
+    tooltipShow: false,
   }),
   getters: {},
   actions: {
@@ -63,9 +64,11 @@ export const useUser = defineStore("user", {
           this.message = "Вы успешно вошли!";
           this.dialog2 = true;
           this.isLogin = true;
+          setTimeout(() => {
+            this.dialog2 = false;
+          }, 5000);
         })
         .catch((error) => {
-          console.log(error.code);
           if (error.code == "auth/invalid-credential") {
             this.message = "Неправильно введен Email или пароль!";
             this.dialog2 = true;

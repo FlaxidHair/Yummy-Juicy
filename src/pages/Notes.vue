@@ -47,7 +47,8 @@
                                 </v-card-actions>
                             </div>
                             <v-card-text>{{ store.selectNote.Subtitle }}</v-card-text>
-                            <v-btn width="150px" class="ml-auto mr-5 bg-red my-2 mb-5" text="Удалить"
+                            <v-btn :disabled="!userStore.isLogin ? true : false"
+                            width="150px" class="ml-auto mr-5 bg-red my-2 mb-5" text="Удалить"
                                 @click="store.dialog = true"></v-btn>
                         </v-card>
                     </template>
@@ -71,6 +72,8 @@
 <script setup>
 import { useStoreRecipies } from '../stores/storeRecipies'
 import { ref, onMounted } from 'vue'
+import { useUser } from "../stores/user";
+const userStore = useUser();
 onMounted(() => {
     store.getNotes
 })

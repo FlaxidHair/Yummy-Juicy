@@ -8,8 +8,9 @@
                             <h4 class="">{{ store.selectRecipe.Name }}</h4>
                         </div>
                         <v-btn width="150px" class="ml-5 mt-3 bg-red" text="Удалить"
-                            @click="store.dialog = true"></v-btn>
+                            @click="store.dialog = true" :disabled="!userStore.isLogin ? true : false"></v-btn>
                         <v-btn
+                        :disabled="!userStore.isLogin ? true : false"
                             @click="() => { store.patchFavoriteStatus(); store.selectRecipe.Favorite = !store.selectRecipe.Favorite }"
                             class="ml-5 align-self-end elevation-0 border-thin" width="40px" height="40px"
                             icon=""><v-icon
@@ -59,4 +60,6 @@
 <script setup>
 import { useStoreRecipies } from "../stores/storeRecipies";
 const store = useStoreRecipies();
+import { useUser } from "../stores/user";
+const userStore = useUser();
 </script>

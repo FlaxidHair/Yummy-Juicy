@@ -5,13 +5,11 @@ import { createVuetify } from "vuetify";
 import colors from "vuetify/util/colors";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
-import { createRouter, createWebHashHistory } from "vue-router";
 import App from "./App.vue";
 import "./assets/main.css";
 import "@mdi/font/css/materialdesignicons.css";
-
 import { initializeApp } from "firebase/app";
-
+import router from "./router/router";
 const firebaseConfig = {
   apiKey: "AIzaSyB8fNCFypsoi_Fyl17Mlqq-9ixpVt9Ktzs",
   authDomain: "recipe-cie.firebaseapp.com",
@@ -41,36 +39,7 @@ const vuetify = createVuetify({
     },
   },
 });
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes: [
-    {
-      path: "/",
-      name: "main",
-      component: () => import("./pages/MainPage.vue"),
-    },
-    {
-      path: "/Favorite",
-      name: "favorite",
-      component: () => import("./pages/Favorite.vue"),
-    },
-    {
-      path: "/Notes",
-      name: "notes",
-      component: () => import("./pages/Notes.vue"),
-    },
-    {
-      path: "/Recipies",
-      name: "recipe",
-      component: () => import("./pages/Recipies.vue"),
-    },
-    {
-      path: "/Template-Recipe",
-      name: "template-recipe",
-      component: () => import("./pages/TemplateRecipe.vue"),
-    },
-  ],
-});
+
 const pinia = createPinia();
 pinia.use(({ store }) => {
   store.router = markRaw(router);

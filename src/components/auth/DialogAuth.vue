@@ -6,7 +6,7 @@
             @click="userStore.dialog=true"
             class="elevation-2 bg-white"
             icon="mdi-login-variant"
-          ><v-icon color='red-accent-1'>mdi-account</v-icon></v-btn>
+          ><v-icon color='red-accent-1'>mdi-account</v-icon><v-tooltip v-if="!userStore.isLogin" :model-value="userStore.tooltipShow" activator="parent" location="bottom">Зарегистрироваться</v-tooltip></v-btn>
                 <component :is="userStore.component"></component>
     <v-dialog v-model="userStore.dialog2" max-width="400">
       <v-card class="d-flex align-center justify-center">
@@ -15,7 +15,7 @@
         </template>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn text="Закрыть" class="bg-red" variant="text" @click="()=>userStore.dialog2 = false"></v-btn>
+        
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -25,8 +25,8 @@
 <script setup>
 import { useStoreRecipies } from "../../stores/storeRecipies";
 import { useUser } from "../../stores/user";
-import { onMounted,ref } from "vue";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { onMounted } from "vue";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const store = useStoreRecipies();
 const userStore = useUser();
