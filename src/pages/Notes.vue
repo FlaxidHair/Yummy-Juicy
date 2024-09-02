@@ -13,7 +13,6 @@
                             flat>Добавить</v-btn>
                                 <v-tooltip v-if="!userStore.isLogin" activator="parent" location="end">Войдите что бы добавить!</v-tooltip>
                             </div>
-                        
                     </div>
                     <v-textarea v-model="subTitle" name="Subtitle" label="Введите заметку" no-resize max-rows="10" tile
                         variant="filled" hide-details class=""></v-textarea>
@@ -85,7 +84,7 @@ const store = useStoreRecipies();
 const forma = ref(null)
 const title = ref("")
 const subTitle = ref("")
-const valid = ref(false)
+let valid = ref(false)
 const vform2 = ref([])
 const rules = ref({required: value => !!value || 'Необходимо заполнить поле!',})
 function postNote() {
