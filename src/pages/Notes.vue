@@ -88,7 +88,7 @@ let valid = ref(false)
 const vform2 = ref([])
 const rules = ref({required: value => !!value || 'Необходимо заполнить поле!',})
 function postNote() {
-    if(this.valid) {
+    if(valid) {
     fetch('https://script.google.com/macros/s/AKfycbwf7Ty0tbwPJJbm3gb9FRW0wk0kMRoyqCNeK9xMB9n4a0pfWktu3eiWnbB2dzeLHrcO/exec', {
         method: "POST",
         body: new FormData(forma.value),
