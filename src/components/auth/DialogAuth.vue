@@ -15,7 +15,7 @@
         </template>
         <v-card-actions>
           <v-spacer></v-spacer>
-        
+          <v-btn  text="Закрыть" class="bg-red" variant="text" @click="()=>userStore.dialog2 = false"></v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

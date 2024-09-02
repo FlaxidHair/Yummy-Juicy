@@ -66,7 +66,7 @@ export const useUser = defineStore("user", {
           this.isLogin = true;
           setTimeout(() => {
             this.dialog2 = false;
-          }, 5000);
+          }, 1500);
         })
         .catch((error) => {
           if (error.code == "auth/invalid-credential") {

@@ -26,7 +26,7 @@
       </div>
       <SearchInput></SearchInput>
       <Auth v-if="!userStore.isLogin"></Auth>
-      <v-btn v-if="userStore.isLogin" @click="userStore.logout" icon="mdi-logout"></v-btn>
+      <Logout v-else-if="userStore.isLogin"></Logout>
     </v-app-bar>
   </div>
 </template>
@@ -36,6 +36,7 @@ import { watch,ref } from 'vue';
 import { useStoreRecipies } from '../stores/storeRecipies'
 import SearchInput from './SearchInput.vue';
 import Auth from './auth/DialogAuth.vue'
+import Logout from './auth/buttonLogout.vue'
 const store = useStoreRecipies();
 import { useUser } from "../stores/user";
 const userStore = useUser();

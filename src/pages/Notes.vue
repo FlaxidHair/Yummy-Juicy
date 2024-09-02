@@ -8,8 +8,12 @@
                     <div class="d-flex">
                         <v-text-field required :rules="[rules.required]" name="Title" v-model="title" label="Введите заголовок" tile variant="solo"
                             hide-details class=""></v-text-field>
-                        <v-btn @click="postNote()" class="elevation-2" type="submit" width="120px" tile height="56px"
+                            <div>
+                                <v-btn @click="postNote()" :disabled="userStore.isLogin ? false : true" class="elevation-2" type="submit" width="120px" tile height="56px"
                             flat>Добавить</v-btn>
+                                <v-tooltip v-if="!userStore.isLogin" activator="parent" location="end">Войдите что бы добавить!</v-tooltip>
+                            </div>
+                        
                     </div>
                     <v-textarea v-model="subTitle" name="Subtitle" label="Введите заметку" no-resize max-rows="10" tile
                         variant="filled" hide-details class=""></v-textarea>
