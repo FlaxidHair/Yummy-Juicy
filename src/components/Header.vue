@@ -8,25 +8,26 @@
           </RouterLink>
         </v-app-bar-title>
       </div>
-      <div class="d-flex ml-auto">
-        <ul class="d-flex">
+      <div class=" d-lg-flex d-xl-flex ml-auto d-md-none">
+        <ul class=" d-flex ">
           <RouterLink to="/Favorite">
-            <li><v-btn class="text-white">Избранное</v-btn></li>
+            <li><v-btn  class="text-white px-lg-1 px-xl-4">Избранное</v-btn></li>
           </RouterLink>
           <RouterLink to="/recipies">
-            <li><v-btn class="text-white">Рецепты</v-btn></li>
+            <li><v-btn class="text-white px-lg-1 px-xl-4">Рецепты</v-btn></li>
           </RouterLink>
           <RouterLink to="/template-recipe">
-            <li><v-btn class="text-white">Создать рецепт</v-btn></li>
+            <li><v-btn class="text-white px-lg-1 px-xl-4">Создать рецепт</v-btn></li>
           </RouterLink>
           <RouterLink to="notes">
-            <li class="text-white"><v-btn>Заметки</v-btn></li>
+            <li><v-btn class="text-white px-lg-1 px-xl-4">Заметки</v-btn></li>
           </RouterLink>
         </ul>
       </div>
       <SearchInput></SearchInput>
       <Auth v-if="!userStore.isLogin"></Auth>
       <Logout v-else-if="userStore.isLogin"></Logout>
+      <Navigation></Navigation>
     </v-app-bar>
   </div>
 </template>
@@ -37,6 +38,7 @@ import { useStoreRecipies } from '../stores/storeRecipies'
 import SearchInput from './SearchInput.vue';
 import Auth from './auth/DialogAuth.vue'
 import Logout from './auth/buttonLogout.vue'
+import Navigation from './mobile/Navigation.vue'
 const store = useStoreRecipies();
 import { useUser } from "../stores/user";
 const userStore = useUser();
