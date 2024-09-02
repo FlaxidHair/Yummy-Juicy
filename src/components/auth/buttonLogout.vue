@@ -1,7 +1,7 @@
 <template>
           <v-dialog max-width="500">
         <template v-slot:activator="{ props: activatorProps }">
-            <v-btn  v-bind="activatorProps" icon="mdi-logout"></v-btn>
+            <v-btn class="text-center ml-5 mr-10 bg-white" v-bind="activatorProps" icon="mdi-logout"><v-icon color='red-accent-1'>mdi-logout</v-icon></v-btn>
         </template>
       
         <template v-slot:default="{ isActive }">
