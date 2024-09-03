@@ -11,7 +11,7 @@
                                 <v-hover v-slot="{ isHovering, props }" open-delay="50">
                                     <div @click="() => { store.selectRecipe = recipe }" :item="recipe"
                                         class="w-100 cursor-pointer d-flex" v-bind="activatorProps">
-                                        <v-card class="d-flex flex-column align-center" width="400px" height="500"
+                                        <v-card class="d-flex flex-column  align-center" width="400px" height="500"
                                             :class="isHovering, props" v-bind="props" :elevation="isHovering ? 8 : 2">
                                             <v-card-title class="mr-auto ml-auto">{{ recipe.Name }}</v-card-title>
                                             <div class="d-flex w-100 justify-center">

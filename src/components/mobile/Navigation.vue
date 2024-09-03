@@ -1,11 +1,13 @@
 <template>
-      <div class="d-md-flex mr-3 d-lg-none ">
+      <div class="d-md-flex mr-3 d-lg-none">
         <v-dialog max-width="350">
         <template v-slot:activator="{ props: activatorProps }">
           <v-btn
             v-bind="activatorProps"
             color="white"
             variant="flat"
+            width="35px"
+            height="35px"
             icon="mdi-menu"
           ><v-icon color="red-accent-1">mdi-menu</v-icon></v-btn>
         </template>

@@ -2,8 +2,8 @@
   <div class="d-flex justify-center">
     <v-app-bar :elevation="3" rounded class="bg-red-accent-1 mt-3 position-relative w-75 d-flex">
       <div class="ml-xl-8 ml-lg-6 ml-md-4 ml-3 ">
-        <v-app-bar-title class="d-flex ga-3 text-no-wrap text-xl-h6 text-lg-h6 text-md-h6 text-sm-body-1 text-overline">
-          <RouterLink class="text-red-lighten-5 " to="/">
+        <v-app-bar-title class="  d-flex ga-3 text-no-wrap text-xl-h6 text-lg-h6 text-md-h6 text-sm-body-1 text-overline">
+          <RouterLink class=" text-wrap text-red-lighten-5" to="/">
             Yummy&Juicy
           </RouterLink>
         </v-app-bar-title>
