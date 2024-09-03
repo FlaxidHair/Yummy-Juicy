@@ -20,7 +20,7 @@
                 @click="isActive.value = false"
               ></v-btn>
             </v-card-actions>
-            <div class="d-flex mb-14">
+            <div class="d-flex mb-5">
         <ul class=" d-flex flex-column ga-4">
           <RouterLink to="/Favorite">
             <li><v-btn  class="px-lg-1 elevation-0 px-xl-4">Избранное</v-btn></li>
@@ -36,6 +36,8 @@
           </RouterLink>
         </ul>
       </div>
+      <Auth v-if="!userStore.isLogin" class="mb-5"></Auth>
+      <Logout v-else-if="userStore.isLogin"></Logout>
           </v-card>
         </template>
       </v-dialog>
