@@ -1,6 +1,6 @@
 <template>
-  <div class="ml-auto mr-5">
-    <v-text-field width="20vw" :loading="store.loadingSearch" append-inner-icon="mdi-magnify" density="compact"
+  <div class="ml-xl-auto ml-lg-auto ml-md-auto ml-sm-auto ml-auto mr-auto">
+    <v-text-field width="23vw" :loading="store.loadingSearch" append-inner-icon="mdi-magnify" density="compact"
       label="Найти рецепт" variant="solo" hide-details v-model="store.inputText" single-line
       @click:append-inner="store.onClickSearch" @focus="store.onFocus" @blur="store.onBlur"></v-text-field>
     <v-expand-transition>

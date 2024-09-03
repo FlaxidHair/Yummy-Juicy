@@ -1,10 +1,9 @@
 <template>
-        <div class="text-center ml-5 mr-10">
+        <div class="text-center mr-3">
             <v-btn
             color="surface-variant"
-            text="Войти"
             @click="userStore.dialog=true"
-            class="elevation-2 bg-white"
+            class="elevation-2 bg-white "
             icon="mdi-login-variant"
           ><v-icon color='red-accent-1'>mdi-account</v-icon><v-tooltip v-if="!userStore.isLogin" :model-value="userStore.tooltipShow" activator="parent" location="bottom">Зарегистрироваться</v-tooltip></v-btn>
                 <component :is="userStore.component"></component>
