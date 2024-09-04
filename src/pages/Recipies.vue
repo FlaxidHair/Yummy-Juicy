@@ -6,27 +6,7 @@
         <FilterGroup v-show="!store.loading"></FilterGroup>
         <div v-if="!store.loading">
         <div v-show="!store.showSearchResult">
-            <!-- <div v-show="store.startShow == 0"> -->
                 <FilterStart></FilterStart>
-            <!-- </div> -->
-            <!-- <div v-show="store.startShow == 1">
-                <FilterMeat></FilterMeat>
-            </div>
-            <div v-show="store.startShow == 2">
-                <FilterFish></FilterFish>
-            </div>
-            <div v-show="store.startShow == 3">
-                <FilterSalad></FilterSalad>
-            </div>
-            <div v-show="store.startShow == 4">
-                <FilterSoup></FilterSoup>
-            </div>
-            <div v-show="store.startShow == 5">
-                <FilterDessert></FilterDessert>
-            </div>
-            <div v-show="store.startShow == 6">
-                <FilterGarnish></FilterGarnish>
-            </div> -->
         </div>
 
         <div v-show="store.showSearchResult">

@@ -121,22 +121,13 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       return this.recipies.recipies;
     },
     getMeatName() {
-      return {
-        name: this.getterMeat[this.GetterRandom.meat].Name,
-        image: this.getterMeat[this.GetterRandom.meat].Image,
-      };
+      return this.getterMeat[this.GetterRandom.meat];
     },
     getGarnishName() {
-      return {
-        name: this.getterGarnish[this.GetterRandom.garnish].Name,
-        image: this.getterGarnish[this.GetterRandom.garnish].Image,
-      };
+      return this.getterGarnish[this.GetterRandom.garnish];
     },
     getSaladName() {
-      return {
-        name: this.getterSalad[this.GetterRandom.salad].Name,
-        image: this.getterSalad[this.GetterRandom.salad].Image,
-      };
+      return this.getterSalad[this.GetterRandom.salad];
     },
     getterFavoriteItems() {
       if (!this.loading) {
