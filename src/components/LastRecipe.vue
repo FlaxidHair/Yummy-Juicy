@@ -6,9 +6,9 @@
                 <v-dialog max-width="800">
                     <template v-slot:activator="{ props: activatorProps }">
                         <div
-                            class="d-flex ga-xl-5 gc-lg-16 ga-md-0 justify-center  justify-lg-center justify-xl-start justify-sm-center ga-sm-1 flex-xl-nowrap flex-lg-wrap flex-md-wrap flex-sm-wrap flex-wrap ga-3 w-xl-100 mx-xl-auto w-md-100 w-lg-100 w-sm-100">
+                            class="d-flex ga-xl-5 gc-lg-16 ga-md-0 justify-center justify-lg-center justify-xl-start justify-sm-center ga-sm-1 flex-xl-nowrap flex-lg-wrap flex-md-wrap flex-sm-wrap flex-wrap ga-3 w-xl-100 mx-xl-auto w-md-100 w-lg-100 w-sm-100">
                             <div v-for="recipe in store.getterLastRecipies" ref="recipe" :key="recipe"
-                                class="d-flex mb-7 w-xl-50 w-lg-33 w-md-50 w-sm-100 w-75  justify-center">
+                                class="d-flex mb-7 w-xl-50 w-lg-33 w-md-50 w-sm-100 w-100 justify-center">
                                 <v-hover v-slot="{ isHovering, props }" open-delay="50">
                                     <div @click="() => { store.selectRecipe = recipe }" :item="recipe"
                                         class="w-xl-100 w-lg-100 w-sm-100 w-75 cursor-pointer justify-center d-flex"
