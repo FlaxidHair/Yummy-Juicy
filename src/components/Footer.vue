@@ -1,8 +1,8 @@
 <template>
-  <div class="mt-10">
+  <div class="mt-10 d-flex">
     <v-footer class="bg-red-accent-1" height="200px">
       <v-row justify="center" no-gutters>
-        <ul class="d-flex ga-5">
+        <ul class="d-flex ga-5 flex-wrap">
           <RouterLink to="/">
             <li><v-btn class="bg-transparent elevation-1 text-white">Главная</v-btn></li>
           </RouterLink>
