@@ -20,24 +20,27 @@
                 @click="isActive.value = false"
               ></v-btn>
             </v-card-actions>
-            <div class="d-flex mb-5">
+            <div class="d-flex flex-column mb-5">
         <ul class=" d-flex flex-column ga-4">
           <RouterLink to="/Favorite">
-            <li><v-btn  class="px-lg-1 elevation-0 px-xl-4">Избранное</v-btn></li>
+            <li><v-btn  class="px-lg-1 bg-red-accent-1 text-white elevation-0 px-xl-4">Избранное</v-btn></li>
           </RouterLink>
           <RouterLink to="/recipies">
-            <li><v-btn class="px-lg-1 elevation-0 px-xl-4">Рецепты</v-btn></li>
+            <li><v-btn class="px-lg-1 elevation-0 bg-red-accent-1 text-white px-xl-4">Рецепты</v-btn></li>
           </RouterLink>
           <RouterLink to="/template-recipe">
-            <li><v-btn class="px-lg-1 elevation-0 px-xl-4">Создать рецепт</v-btn></li>
+            <li><v-btn class="px-lg-1 elevation-0 bg-red-accent-1 text-white px-xl-4">Создать рецепт</v-btn></li>
           </RouterLink>
           <RouterLink to="/notes">
-            <li><v-btn class="px-lg-1 elevation-0 px-xl-4">Заметки</v-btn></li>
+            <li><v-btn class="px-lg-1 elevation-0 bg-red-accent-1 text-white px-xl-4">Заметки</v-btn></li>
           </RouterLink>
-        </ul>
+        </ul>  
+        <div class="d-flex align-center">
+          <span class="text-button mr-2 mt-5 text-blue">Войти <v-icon>mdi-subdirectory-arrow-right</v-icon></span>
+        <Auth v-if="!userStore.isLogin" class="mt-5"></Auth>
+        <Logout v-else-if="userStore.isLogin"></Logout>
+        </div>     
       </div>
-      <Auth v-if="!userStore.isLogin" class="mb-5"></Auth>
-      <Logout v-else-if="userStore.isLogin"></Logout>
           </v-card>
         </template>
       </v-dialog>

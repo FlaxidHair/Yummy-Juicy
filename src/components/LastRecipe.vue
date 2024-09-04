@@ -36,11 +36,11 @@
 
                     <template v-slot:default="{ isActive }">
                         <v-card class="d-flex flex-column">
-                            <div class="d-flex mt-1">
+                            <div class="d-flex mt-1 flex-wrap">
                                 <v-card-title>
                                     {{ store.selectRecipe.Name }}
                                 </v-card-title>
-                                <v-card-actions class="ml-auto align-end mr-2">
+                                <v-card-actions class="ml-auto order-sm-2 order-first order-md-2 order-lg-2 order-xl-2 align-end mr-2">
                                     <v-spacer></v-spacer>
                                     <v-btn text="Закрыть" @click="isActive.value = false"></v-btn>
                                 </v-card-actions>
