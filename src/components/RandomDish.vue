@@ -1,5 +1,5 @@
 <template>
-    <v-container class="d-flex w-75 bg-white mt-15 flex-column align-center elevation-3">
+    <v-container class="d-flex w-100 bg-white mt-15 flex-column align-center elevation-3">
         <h2 class="align-self-center">Что поесть?</h2>
         <v-btn class="bg-red-accent-1  w-xl-33 w-lg-33 w-md-33 w-sm-50 w-100 mb-15 mt-10 text-white"
             @click="store.getRandom()">Выбрать что

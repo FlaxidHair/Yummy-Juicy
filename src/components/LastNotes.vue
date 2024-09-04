@@ -4,8 +4,8 @@
             <h2 class="mb-10 align-self-center">Последние заметки</h2>
             <v-dialog max-width="800">
                 <template v-slot:activator="{ props: activatorProps }">
-                    <div class="d-flex  w-lg-100 w-md-100 w-sm-100 border-thin flex-wrap w-100 justify-xl-center justify-lg-center justify-md-center justify-sm-center justify-center  gc-xl-0 gc-lg-0 gc-md-0 gc-sm-0">
-                        <div v-for="note in store.getterLastNotes" :key="note" class="w-xl-25 w-lg-50 w-md-50 w-sm-50 w-100 border-thin mb-7">
+                    <div class="d-flex  w-lg-100 w-md-100 w-sm-100 flex-wrap w-100 justify-xl-center justify-lg-center justify-md-center justify-sm-center justify-center  gc-xl-0 gc-lg-0 gc-md-0 gc-sm-0">
+                        <div v-for="note in store.getterLastNotes" :key="note" class="w-xl-25 w-lg-50 w-md-50 w-sm-50 w-100 mb-7">
                             <v-hover v-slot="{ isHovering, props }" open-delay="50">
                                 <div @click="() => { store.selectNote = note }" :item="note"
                                     class="w-xl-100 w-lg-100 w-md-100 w-sm-100 w-100 justify-center d-flex cursor-pointer" v-bind="activatorProps">
