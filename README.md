@@ -10,5 +10,6 @@
 
 Или перейти по ссылке на деплой проекта -[Yummy&Juicy](https://flaxidhair.github.io/Recipe-Cite/#/)
  
-
 Для просмотра недоступных возможностей, необходимо зарегистрироваться и авторизоваться!
+
+[English Version](https://github.com/FlaxidHair/Recipe-Cite/blob/master/README.EN.md) 
