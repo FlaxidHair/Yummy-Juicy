@@ -8,7 +8,8 @@
         height="50vh">
         <div>
           <div v-for="item in store.getterShow">
-            <v-card link class="my-2 mx-2 px-2 py-2" @click="() => { store.selectRecipe = item; store.showSearchRequest() }">
+            <v-card link class="my-2 mx-2 px-2 py-2"
+              @click="() => { store.selectRecipe = item; store.showSearchRequest() }">
               <div class="d-flex mb-2">
                 <h4 class="align-self-center">{{ item.Name }}</h4>
                 <p class="ml-auto border-thin pa-1 align-center">{{ item.Category }}</p>
