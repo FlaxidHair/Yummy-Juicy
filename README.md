@@ -1,29 +1,15 @@
-# Recipe-Site
+# *Yummy & Juicy*
 
-This template should help get you started developing with Vue 3 in Vite.
+## *_Описание_* :  
 
-## Recommended IDE Setup
+Проект называется Yummy & Juicy и он, является сборником рецептов, с генератором возможных блюд на сегодня. 
+В проекте реализовано, pop-up окна, генерация рандомных блюд разделенное на ( первое/второе/салат ), реализовано добавление / удаление *рецептов*, добавление / удаление *заметок* пользователя,  возможность добавление / удаление рецептов в страницу избранных и соответственно их отображение в одноименной вкладке.  Добавлена авторизация и регистрация пользователей на сайте ( при авторизации, пользователям становятся доступны вышеописанные возможности ), за основу была взята, база данных FireBase.  Реализована адаптивная верстка проекта с использованием Vuetify breakpoint классов. 
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## *_Как запустить_* :
+Клонировать репозиторий и запустить команду - npm run install , а затем - npm run dev. 
 
-## Customize configuration
+Или перейти по ссылке на деплой проекта -[Yummy&Juicy](https://flaxidhair.github.io/Recipe-Cite/#/)
+ 
+Для просмотра недоступных возможностей, необходимо зарегистрироваться и авторизоваться!
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+[English Version](https://github.com/FlaxidHair/Recipe-Cite/blob/master/README.EN.md) 
