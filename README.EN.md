@@ -12,3 +12,5 @@ Or follow the link to the project deployment - [Yummy&Juicy](https://flaxidhair.
  
 
 To view unavailable features, you must register and log in!
+
+[Russian version](https://github.com/FlaxidHair/Recipe-Cite/blob/master/README.md)
