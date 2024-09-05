@@ -2,7 +2,7 @@
     <div class="main d-flex flex-column align-center"  v-if="!store.loading" >
         <h2 class="mt-10 mb-5">Добавить заметку</h2>
         <v-container>
-            <div class="w-50 mr-auto ml-auto border-thin mb-5">
+            <div class="w-xl-50 w-lg-50 w-md-50 w-sm-75 w-100 mr-auto ml-auto border-thin mb-5">
                 <v-form ref="vform2" v-model="valid" >
                 <form ref="forma" @submit.prevent>
                     <div class="d-flex">
