@@ -8,7 +8,6 @@ import {
 } from "firebase/auth";
 import Registration from "../components/auth/Registration.vue";
 import Login from "../components/auth/Login.vue";
-
 export const useUser = defineStore("user", {
   state: () => ({
     user: null,

@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { useUser } from "../stores/user";
 export const useStoreRecipies = defineStore("storeRecipies", {
   state: () => ({
     recipies: [],
@@ -130,7 +131,8 @@ export const useStoreRecipies = defineStore("storeRecipies", {
       return this.getterSalad[this.GetterRandom.salad];
     },
     getterFavoriteItems() {
-      if (!this.loading) {
+      const userStore = useUser();
+      if (!this.loading && userStore.isLogin) {
         return this.recipies.recipies.filter((item) => {
           return item.Favorite == true;
         });

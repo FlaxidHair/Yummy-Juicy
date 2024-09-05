@@ -37,6 +37,7 @@ const router = createRouter({
     },
   ],
 });
+
 router.beforeEach((to, from, next) => {
   const userStore = useUser();
   if (to.matched.some((record) => record.meta.requiresAuth)) {

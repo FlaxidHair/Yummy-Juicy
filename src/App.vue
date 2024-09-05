@@ -1,7 +1,7 @@
 <template>
   <v-app class="app">
     <Header></Header>
-    <v-progress-circular class="main ml-auto mt-auto  mr-auto" indeterminate :size="40" color=""
+    <v-progress-circular class="main ml-auto mt-auto  mr-auto" indeterminate :size="40" color="red-accent-1"
       v-show="store.loading"></v-progress-circular>
     <RouterView v-show="!store.loading" />
     <Footer></Footer>
@@ -20,6 +20,6 @@ const store = useStoreRecipies();
 onMounted(() => {
   store.getRecipies()
   store.getNotes()
-
+  
 })
 </script>
