@@ -43,8 +43,8 @@
             <v-card v-show="store.dialog" class="d-flex flex-column">
                 <div class="d-flex mt-1 flex-wrap w-100">
                     <v-card-title class="d-flex flex-wrap">
-                        <div class="d-flex border-thin pa-2">
-                            <h4>{{ store.selectRecipe.Name }}</h4>
+                        <div class="w-xl-100 w-lg-100 w-md-100 w-sm-100 w-75 d-flex border-thin pa-2">
+                            <h4 class="text-wrap">{{ store.selectRecipe.Name }}</h4>
                         </div>
                     </v-card-title>
                     <div class="d-flex align-center mb-5 mr-5">

@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-xl-auto ml-lg-auto ml-md-auto ml-sm-auto ml-auto mr-xl-3 mr-lg-3 mr-md-3 mr-sm-2 w-xl-25 w-lg-25 w-md-50 w-sm-50 w-50 mr-1">
+  <div class="ml-xl-auto ml-lg-auto ml-md-auto ml-sm-auto ml-auto mr-xl-3 mr-lg-3 mr-md-3 mr-sm-2 w-xl-25 w-lg-25 w-md-50 w-sm-50 w-50 mr-3">
     <v-text-field class="w-100" :loading="store.loadingSearch" append-inner-icon="mdi-magnify" density="compact"
       label="Найти рецепт" variant="solo" hide-details v-model="store.inputText" single-line
       @click:append-inner="store.onClickSearch" @focus="store.onFocus" @blur="store.onBlur"></v-text-field>
