@@ -8,7 +8,6 @@
         <div v-show="!store.showSearchResult">
                 <FilterStart></FilterStart>
         </div>
-
         <div v-show="store.showSearchResult">
             <FilterSearch></FilterSearch>
         </div>

@@ -1,12 +1,12 @@
 <template>
-  <div class="main d-flex align-center align-self-center w-75 mb-10 flex-column">
+  <div class="main d-flex align-center align-self-center w-xl-75 w-lg-75 w-md-65 w-sm-75 w-100 mb-10 flex-column">
     <h2 class="mt-10 mb-5">Добавить рецепт</h2>
-    <div class="w-66 bg-white">
+    <div class="w-xl-75 w-lg-75 w-md-75 w-sm-100 w-100 bg-white">
       <v-container class="elevation-2">
-        <div class="d-flex">
-          <v-card class="mx-auto mb-5 pl-10" max-width="600px" :elevation="0">
-            <v-card-text>
-              <h2 class="text-h6 mb-2 d-flex justify-center">Выберите категорию рецепта</h2>
+        <div class="d-flex flex-wrap">
+          <v-card class="ml-10 mr-5 mb-5 border-thin" max-width="600px" :elevation="0">
+            <v-card-text class="border-thin">
+              <h2 class="text-xl-h6 text-lg-h6 text-md-h6 text-sm-h6 text-subtitle-2 mb-2 d-flex justify-center">Выберите категорию рецепта</h2>
               <v-chip-group v-model="amenities" column tag="FORM" ref="formCat">
                 <v-chip text="Мясо" variant="outlined" filter tag="CHECKBOX" name="Category"></v-chip>
 
@@ -22,9 +22,9 @@
               </v-chip-group>
             </v-card-text>
           </v-card>
-          <v-form ref="form">
+          <v-form ref="form" class="ml-xl-auto ml-lg-8 ml-md-8 ml-sm-8 ml-8">
           <v-responsive class="pa-2">
-              <v-autocomplete v-model="this.time"  label="Время" :items="itemsTime" class=" auto-select-first align-self-center shrink ml-auto mr-10"
+              <v-autocomplete v-model="this.time"  label="Время" :items="itemsTime" class="auto-select-first align-self-center shrink mr-10"
                 variant="outlined" width="150px" name="Time"></v-autocomplete>
               </v-responsive>
             </v-form>
@@ -40,9 +40,10 @@
               variant="outlined"></v-textarea>
             <v-text-field required :rules="[rules.required]" name="Image" variant="outlined" v-model="this.inputImage" prepend-inner-icon="mdi-mushroom"
               label="Введите URL изображения"></v-text-field>
-            <div class="d-flex">
-              <v-switch color="blue" label="Добавить в любимые рецепты" v-model="this.chooseFavorite" class="d-flex text-blue" inset></v-switch>
-              <v-btn @click="postRecipe()" type="submit" class="w-25 my-5 ml-auto bg-red-accent-1 text-white"
+            <div class="d-flex align-center">
+              <label for="favoriteSwitch" class="text-blue mr-2 text-wrap">Добавить любимый рецепт</label>
+              <v-switch color="blue" v-model="this.chooseFavorite" id="favoriteSwitch" class="d-flex mr-2" inset></v-switch>
+              <v-btn @click="postRecipe()" type="submit" class=" w-xl-25 w-lg-25 w-md-25 w-sm-25 w-50 my-5 ml-xl-auto ml-lg-auto ml-md-auto ml-sm-auto  ml-3 bg-red-accent-1 text-white"
                 height="40px">Добавить</v-btn>
             </div>
           </div>

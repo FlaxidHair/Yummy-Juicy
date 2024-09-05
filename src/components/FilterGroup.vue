@@ -3,7 +3,7 @@
     <v-progress-linear indeterminate v-show="store.loadingRecipe" color="red-accent-1"></v-progress-linear>
     <v-card-text>
       <h2 class="text-h6 mb-2">Фильтр</h2>
-      <div class="d-flex">
+      <div class="d-flex w-75 w-xl-100 w-lg-100 w-md-100 w-sm-100">
       <v-chip-group v-model="store.amenities" column>
         
         <v-chip text="Все" variant="outlined" filter @click="changeAmenities(0)"></v-chip>
